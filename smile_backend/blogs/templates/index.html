@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smile Club</title>
+    <link rel="shortcut icon"
+        href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
+        type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'style.css' %}" /></head>
+
+<body>
+    <div id="nav">
+        <img class="logo" alt="Owner avatar" src="https://avatars.githubusercontent.com/u/146611856?s=48&amp;v=4" width="40" height="15">      
+        <h3>Home</h3>
+        <h3>About</h3>
+        <h3>All Articles</h3>
+        <h3>Contact</h3>
+        <h3>Forum</h3>
+        <h3>Categories</h3>
+        <!-- <li class="dropdown">
+            <a href="#"><h3>Categories</h3></a>
+            <div class="dropdown-content">
+              <div class="column">
+                <a href="#">Category 1</a>
+                <a href="#">Category 2</a>
+                <a href="#">Category 3</a>
+              </div>
+              <div class="column">
+                <a href="#">Category 4</a>
+                <a href="#">Category 5</a>
+                <a href="#">Category 6</a>
+              </div>
+            </div>
+          </li> -->
+          <div class="nav-right">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div class="mx-2">
+                <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Login</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
+    <video autoplay loop muted src="help.mp4"></video>
+    <div id="main">
+        <div id="page1">
+            
+            <h2>Welcome to SMILE CLUB</h2>
+            <p>Lets make the whole world noble</p>
+            <div id="arrow">
+                <i class="ri-arrow-down-line"></i>
+            </div>
+            
+               
+        </div>
+        <div id="page2">
+            <div id="scroller">
+                <div id="scroller-in">
+                   <h4>WELCOME TO SMILE CLUB FAMILY !</h4>
+                </div>
+                <div id="scroller-in">
+                   <h4>WELCOME TO SMILE CLUB FAMILY ! </h4>
+                </div>
+            </div>
+            <div id="about-us">
+                <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-1-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                    alt="" /> -->
+                <div id="about-us-in">
+                    <h3>ABOUT US</h3>
+                    <p>
+                        Welcome to our spiritual club, where diverse souls unite in a haven of enlightenment. Through meditation and reflection, we nurture inner peace and compassion. We celebrate growth, embracing transformation and interconnectedness. Together, we are beacons of light, spreading love and kindness in our community. Join us on this profound journey of self-discovery and unity.
+
+                    </p>
+                </div>
+                <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-2-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                    alt="" /> -->
+            </div>
+            <div id="cards-container">
+                <div class="card" id="card1">
+                    <div class="overlay">
+                        <h4>Mission</h4>
+                        <p>
+                            Our mission is to inspire spiritual growth 
+                            and enlightenment, fostering a deep sense 
+                            of connection and understanding within our 
+                            community.
+                        </p>
+                    </div>
+                </div>
+                <div class="card" id="card2">
+                    <div class="overlay">
+                        <h4>Culture</h4>
+                        <p>
+                            The culture of our club is rooted in compassion, 
+                            empathy, and inclusivity, where diverse perspectives
+                            are welcomed and celebrated. We promote open-mindedness, 
+                            mutual respect, and a commitment to personal and 
+                            collective growth.
+                        </p>
+                    </div>
+                </div>
+                <div class="card" id="card3">
+                    <div class="overlay">
+                        <h4>Nation</h4>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
+                            quam molestias magni cupiditate architecto et enim quas facere
+                            ipsum tempora?
+                        </p>
+                    </div>
+                </div>
+                <div class="card" id="card4">
+                    <div class="overlay">
+                        <h4>Civilization</h4>
+                        <p>
+                            In our club, we aim to transcend boundaries of nationality, 
+                            ethnicity, and background, embracing the shared humanity 
+                            that unites us all. We foster a sense of global citizenship,
+                            honoring the richness of diverse cultures while emphasizing
+                            common values of peace, cooperation, and understanding.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="card" id="card5">
+                    <div class="overlay">
+                        <h4>Character Building</h4>
+                        <p>
+                            Character building is at the core of our club's ethos,
+                            where we emphasize the development of virtues such as
+                            integrity, compassion, resilience, and inner strength.
+                            Through various practices and discussions, we empower
+                            individuals to cultivate their best selves, embodying
+                            qualities that contribute positively to both personal 
+                            growth and the betterment of society.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="green-div">
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="" />
+                <h4>
+                    TO GET THE LATEST NEWS,EVENTS AND UPDATES ABOUT THE CLUB, CLICK HERE ! 
+                </h4>
+                <button class="black-button">Click Here</button>
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="" />
+            </div>
+        </div>
+        <div id="page3">
+            <p>
+                Set forth your efforts with determination, yet remain detached from the 
+                outcome, for action is superior to inaction. The Bhagavad Gita teaches
+                 us to fulfill our duties with dedication, embracing the journey of 
+                 self-discovery through righteous action.
+            </p>
+            <img id="colon1" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
+                alt="" />
+            <img id="colon2" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
+                alt="" />
+        </div>
+        <div id="page4">
+            <h1> OUR ACHIEVEMENTS</h1>
+            <div class="elem">
+                <h2>Amog Lila Prabhu</h2>
+                <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg"
+                    alt="" />
+            </div>
+            <div class="elem">
+                <h2>More Than 20 events this semester</h2>
+                <img src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="" />
+            </div>
+            <div class="elem">
+                <h2>Mahashivratri Celeberations</h2>
+                <img src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="" />
+            </div>
+            <div class="elem">
+                <h2>More than 25 recruitments done this week</h2>
+                <img src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="" />
+            </div>
+            <div class="elem">
+                <h2>Many more</h2>
+                <img src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="" />
+            </div>
+        </div>
+        
+        <div id="footer">
+            <div class="headFooter">
+                <h1>CONTACT US</h1>
+            </div>
+           
+            
+            <div class="downFooter1">
+                <h1>SMILE CLUB</h1>
+                
+            </div>
+            <div class="downFooter2">
+                <p>copyright@123</p>
+                <p>Support Us</p>
+            </div>
+            <div class="footerLogo">
+                <img class="invert" src="https://cdn.hugeicons.com/icons/instagram-stroke-rounded.svg" alt="instagram" width="24" height="24">
+                <img class="invert" src="https://cdn.hugeicons.com/icons/facebook-01-stroke-rounded.svg" alt="facebook-01" width="24" height="24" />
+                <img class="invert" src="https://cdn.hugeicons.com/icons/twitter-stroke-rounded.svg" alt="twitter" width="24" height="24" />
+                <img class="invert" src="https://cdn.hugeicons.com/icons/linkedin-01-stroke-rounded.svg" alt="linkedin-01" width="24" height="24" />
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
+        integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{% static 'index.js' %}"></script></body>
+
+</html>
