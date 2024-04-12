@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+    <style>
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            cursor: pointer; /* Add cursor pointer for better user experience */
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .card p {
+            margin-bottom: 10px;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog List</h1>
+    {% for blog in posts %}
+    <a href="{% url 'post-detail' blog.id %}" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            {% if blog.cover_image %}
+                <img src="{{ blog.cover_image.url }}" alt="{{ blog.title }}">
+            {% endif %}
+            <h2>{{ blog.title }}</h2>
+            <p>Author: {{ blog.author }}</p>
+            <p>Tags: {{ blog.tags }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</body>
+</html>

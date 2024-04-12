@@ -7,6 +7,8 @@ from lunardate import LunarDate
 class b_post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     title = models.CharField(max_length=200)
+    cover_image = models.ImageField(upload_to='post_images/', blank=True)
+
     author = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, related_name='posts')
     STATUS_CHOICES = (
         ('draft', 'Draft'),

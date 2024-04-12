@@ -26,6 +26,17 @@ def add_comment_to_post(request, pk):
     # Pass the post object to the template with a valid ID
     return render(request, 'post_detail.html', {'post': post})
 
+def blog_list(request):
+    """View function to display a list of blog posts."""
+    posts = b_post.objects.filter(status='published')  # Get all published blog posts
+    context = {'posts': posts}
+    return render(request, 'blog_list.html', context)
+def post_detail(request, post_id):
+    # Retrieve the post object or return 404 if not found
+    post = get_object_or_404(b_post, id=post_id)
+
+    # Render the template with the post object
+    return render(request, 'post_detail.html', {'post': post})
 def team_list_view(request):
     team_members = Team.objects.all()
     return render(request, 'about.html', {'team_members': team_members})
