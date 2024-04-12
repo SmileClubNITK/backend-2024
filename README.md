@@ -17,7 +17,7 @@ starting proj
 venv\Scripts\activate
 
 ### On macOS/Linux
-source venv/bin/activate
+source .venv/bin/activate
 
 ## follow these
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView
-from .models import b_post, Comment, ContentBlock  # Import ContentBlock model
+from .models import b_post, Comment, ContentBlock,Team  # Import ContentBlock model
 
 class PostDetailView(DetailView):
     model = b_post
@@ -25,3 +25,7 @@ def add_comment_to_post(request, pk):
         return redirect('post-detail', pk=pk)
     # Pass the post object to the template with a valid ID
     return render(request, 'post_detail.html', {'post': post})
+
+def team_list_view(request):
+    team_members = Team.objects.all()
+    return render(request, 'team.html', {'team_members': team_members})

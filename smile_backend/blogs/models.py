@@ -58,3 +58,22 @@ class ContentBlock(models.Model):
 
     def __str__(self):
         return f"Content block for {self.post.title}"
+
+
+class Team(models.Model):
+    """Model representing an author."""
+    name = models.CharField(max_length=50, blank=True)
+    bio = models.TextField(max_length=1000, blank=True)
+    # Other fields as needed
+    CATEGORY = (
+        ('core', 'core'),
+        ('member', 'member'),
+        ('cordinators', 'codinators')
+        
+    )
+    post = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(upload_to='post_images/', blank=True)
+    category = models.CharField(max_length=50, choices=CATEGORY)
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
