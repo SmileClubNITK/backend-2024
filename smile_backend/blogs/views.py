@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView
-from .models import b_post, Comment, ContentBlock,Team  # Import ContentBlock model
+from .models import b_post, Comment, ContentBlock,Team ,Event # Import ContentBlock model
 
 class PostDetailView(DetailView):
     model = b_post
@@ -28,4 +28,10 @@ def add_comment_to_post(request, pk):
 
 def team_list_view(request):
     team_members = Team.objects.all()
-    return render(request, 'team.html', {'team_members': team_members})
+    return render(request, 'about.html', {'team_members': team_members})
+
+def event_list(request):
+    """View function to display a list of events sorted by event_date."""
+    events = Event.objects.order_by('event_date')  # Fetch events sorted by event_date
+    context = {'events': events}
+    return render(request, 'timeline.html', context)

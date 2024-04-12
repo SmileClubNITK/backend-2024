@@ -1,47 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+{%load static%}
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smile Club</title>
-    <link
-      rel="shortcut icon"
-      href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
-      type="image/x-icon"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    {%load static%}
+    <link rel="shortcut icon"
+        href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
+        type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="{% static 'style.css' %}" /></head>
-    
-  </head>
-  
-  <body>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+
+</head>
+
+<body>
     <div id="nav">
-      <img
-        class="logo"
-        alt="Owner avatar"
-        src="https://avatars.githubusercontent.com/u/146611856?s=48&amp;v=4"
-        width="40"
-        height="15"
-      />
-      
-      <h3>Home</h3>
-      <h3>About</h3>
-      <h3>All Articles</h3>
-      <h3>Contact</h3>
-      <h3>Forum</h3>
-      <h3>Categories</h3>
-      <!-- <li class="dropdown">
+        <img class="logo" alt="Owner avatar" src="https://avatars.githubusercontent.com/u/146611856?s=48&amp;v=4"
+            width="40" height="15" />
+
+        <h3>Home</h3>
+        <h3>About</h3>
+        <h3>All Articles</h3>
+        <h3>Contact</h3>
+        <h3>Forum</h3>
+        <h3>Categories</h3>
+        <!-- <li class="dropdown">
             <a href="#"><h3>Categories</h3></a>
             <div class="dropdown-content">
               <div class="column">
@@ -56,309 +44,244 @@
               </div>
             </div>
           </li> -->
-      <div class="nav-right">
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
-        <div class="mx-2">
-          <button
-            class="btn btn-danger"
-            data-toggle="modal"
-            data-target="#loginModal"
-          >
-            Login
-          </button>
-          <button
-            class="btn btn-danger"
-            data-toggle="modal"
-            data-target="#signupModal"
-          >
-            Sign Up
-          </button>
+        <div class="nav-right">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+                    Search
+                </button>
+            </form>
+            <div class="mx-2">
+                <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">
+                    Login
+                </button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">
+                    Sign Up
+                </button>
+            </div>
         </div>
-      </div>
     </div>
 
-    
-    
-    <div class="about-aboutus"><h1>ABOUT US</h1></div>
+
+
+    <div class="about-aboutus">
+        <h1>ABOUT US</h1>
+    </div>
     <div class="about-container">
-        <div class="about-header"><h1>SMILE CLUB</h1></div>
+        <div class="about-header">
+            <h1>SMILE CLUB</h1>
+        </div>
         <div class="img-about">
-          <img src="montserrat/sc.png" alt="">
+            <img src="montserrat/sc.png" alt="">
         </div>
         <div class="paragraph-container">
-        <div class="paragraph">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-            doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-            ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-            cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-            a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-            culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-            ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-            quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-            Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-            sapiente quidem ad!.
-          </h3>
-        </div>
-       
+            <div class="paragraph">
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
+                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
+                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
+                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
+                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
+                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
+                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
+                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
+                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
+                    sapiente quidem ad!.
+                </h3>
+            </div>
+
         </div>
         <div class="paragraph-container">
-        <div class="paragraph">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-            doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-            ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-            cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-            a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-            culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-            ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-            quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-            Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-            sapiente quidem ad!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, culpa?
-          </h3>
-        </div>
-       
+            <div class="paragraph">
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
+                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
+                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
+                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
+                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
+                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
+                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
+                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
+                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
+                    sapiente quidem ad!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, culpa?
+                </h3>
+            </div>
+
         </div>
         <div class="paragraph-container2">
-        <div class="paragraph">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-            doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-            ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-            cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-            a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-            culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-            ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-            quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-            Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-            sapiente quidem ad!.
-          </h3>
-        </div>
-        
-        <div class="paragraph">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-            doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-            ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-            cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-            a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-            culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-            ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-            quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-            Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-            sapiente quidem ad!.
-          </h3>
-        </div>
-        <div class="paragraph">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-            modi corrupti cum maxime exercitationem accusamus atque eum laborum
-            soluta ex incidunt odit aut, similique voluptates minima non hic
-            expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
-            amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
-            atque labore rem facilis reprehenderit eligendi ullam odit
-            molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
-            tempora pariatur ad quibusdam quos voluptates? Illo quaerat
-            obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
-            quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
-            beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
-            ipsum ratione exercitationem et architecto! Perspiciatis?
-          </h3>
-        <div class="paragraph">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-            modi corrupti cum maxime exercitationem accusamus atque eum laborum
-            soluta ex incidunt odit aut, similique voluptates minima non hic
-            expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
-            amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
-            atque labore rem facilis reprehenderit eligendi ullam odit
-            molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
-            tempora pariatur ad quibusdam quos voluptates? Illo quaerat
-            obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
-            quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
-            beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
-            ipsum ratione exercitationem et architecto! Perspiciatis?
-          </h3>
-        <div class="paragraph">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-            modi corrupti cum maxime exercitationem accusamus atque eum laborum
-            soluta ex incidunt odit aut, similique voluptates minima non hic
-            expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
-            amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
-            atque labore rem facilis reprehenderit eligendi ullam odit
-            molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
-            tempora pariatur ad quibusdam quos voluptates? Illo quaerat
-            obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
-            quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
-            beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
-            ipsum ratione exercitationem et architecto! Perspiciatis?
-          </h3>
-        </div>
-        <div class="paragraph">
-          <h3>
-            Additional content goes here. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Laudantium quas debitis magnam quod
-            minima ipsa libero nihil rerum fugiat officia?. Lorem ipsum dolor 
-            sit amet consectetur, adipisicing elit. Reprehenderit consectetur 
-            amet perferendis consequatur ipsa placeat assumenda rerum id eius
-             voluptate, fugit, molestiae optio incidunt cumque.
-          </h3>
-        </div>
-      </div>
-        <div class="header1">
-          <h1>CORE Members</h1>
-        </div>
-        <div class="about-cards-container">
-          <div class="card-another" style="width: 30rem">
-            <img src="montserrat/man1.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Ayush</h5>
+            <div class="paragraph">
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
+                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
+                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
+                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
+                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
+                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
+                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
+                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
+                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
+                    sapiente quidem ad!.
+                </h3>
             </div>
-          </div>
-          <div class="card-another" style="width: 30rem">
-            <img src="montserrat/man2.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Krishna</h5>
-            </div>
-          </div>
-          <div class="card-another" style="width: 30rem">
-            <img src="montserrat/man3.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Utkarsh</h5>
-            </div>
-          </div>
-          <div class="card-another" style="width: 30rem">
-            <img src="montserrat/man4.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Anant</h5>
-            </div>
-          </div>
-          <div class="card-another" style="width: 30rem">
-            <img src="montserrat/man5.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Raghav</h5>
-            </div>
-          </div>
-          <div class="card-another" style="width: 30rem">
-            <img src="montserrat/man6.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Madhav</h5>
-            </div>
-          </div>
-          
-        </div>
-        <div class="header1">
-            <h1>COORDINATORS</h1>
-          </div>
-          <div class="about-cards-container">
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man1.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Ayush</h5>
-              </div>
-            </div>
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man2.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Krishna</h5>
-              </div>
-            </div>
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man3.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Utkarsh</h5>
-              </div>
-            </div>
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man4.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Anant</h5>
-              </div>
-            </div>
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man5.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Raghav</h5>
-              </div>
-            </div>
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man6.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Madhav</h5>
-              </div>
-            </div>
-            
-          </div>
-          <div class="header1">
-            <h1>Website developers</h1>
-          </div>
-          <div class="about-cards-container">
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man1.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Ayush</h5>
-              </div>
-            </div>
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man2.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Krishna</h5>
-              </div>
-            </div>
-            <div class="card-another" style="width: 30rem">
-              <img src="montserrat/man3.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Utkarsh</h5>
-              </div>
-            </div>
-            
-          </div>
 
-          <div id="footer">
-            <div class="headFooter">
-                <h1>CONTACT US</h1>
+            <div class="paragraph">
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
+                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
+                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
+                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
+                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
+                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
+                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
+                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
+                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
+                    sapiente quidem ad!.
+                </h3>
             </div>
-            <div class="downFooter1">
-                <h1>SMILE CLUB</h1>
-            </div>
-            <div class="downFooter2">
-                <p>copyright@123</p>
-                <p>Support Us</p>
-            </div>
-            <div class="footerLogo">
-                <img class="invert" src="https://cdn.hugeicons.com/icons/instagram-stroke-rounded.svg" alt="instagram" width="24" height="24">
-                <img class="invert" src="https://cdn.hugeicons.com/icons/facebook-01-stroke-rounded.svg" alt="facebook-01" width="24" height="24" />
-                <img class="invert" src="https://cdn.hugeicons.com/icons/twitter-stroke-rounded.svg" alt="twitter" width="24" height="24" />
-                <img class="invert" src="https://cdn.hugeicons.com/icons/linkedin-01-stroke-rounded.svg" alt="linkedin-01" width="24" height="24" />
-            </div>
-          </div>
-        
-</div>
+            <div class="paragraph">
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+                    modi corrupti cum maxime exercitationem accusamus atque eum laborum
+                    soluta ex incidunt odit aut, similique voluptates minima non hic
+                    expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
+                    amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
+                    atque labore rem facilis reprehenderit eligendi ullam odit
+                    molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
+                    tempora pariatur ad quibusdam quos voluptates? Illo quaerat
+                    obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
+                    quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
+                    beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
+                    ipsum ratione exercitationem et architecto! Perspiciatis?
+                </h3>
+                <div class="paragraph">
+                    <h3>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+                        modi corrupti cum maxime exercitationem accusamus atque eum laborum
+                        soluta ex incidunt odit aut, similique voluptates minima non hic
+                        expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
+                        amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
+                        atque labore rem facilis reprehenderit eligendi ullam odit
+                        molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
+                        tempora pariatur ad quibusdam quos voluptates? Illo quaerat
+                        obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
+                        quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
+                        beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
+                        ipsum ratione exercitationem et architecto! Perspiciatis?
+                    </h3>
+                    <div class="paragraph">
+                        <h3>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+                            modi corrupti cum maxime exercitationem accusamus atque eum laborum
+                            soluta ex incidunt odit aut, similique voluptates minima non hic
+                            expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
+                            amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
+                            atque labore rem facilis reprehenderit eligendi ullam odit
+                            molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
+                            tempora pariatur ad quibusdam quos voluptates? Illo quaerat
+                            obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
+                            quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
+                            beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
+                            ipsum ratione exercitationem et architecto! Perspiciatis?
+                        </h3>
+                    </div>
+                    <div class="paragraph">
+                        <h3>
+                            Additional content goes here. Lorem ipsum dolor sit amet
+                            consectetur, adipisicing elit. Laudantium quas debitis magnam quod
+                            minima ipsa libero nihil rerum fugiat officia?. Lorem ipsum dolor
+                            sit amet consectetur, adipisicing elit. Reprehenderit consectetur
+                            amet perferendis consequatur ipsa placeat assumenda rerum id eius
+                            voluptate, fugit, molestiae optio incidunt cumque.
+                        </h3>
+                    </div>
+                </div>
+                <div class="header1">
+                    <h1>CORE Members</h1>
+                </div>
 
-        
-      
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
-        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
-        integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="{% static 'index.js' %}"></script></body>
-  </body>
+                <div class="about-cards-container">
+
+                  {% for member in team_members %}
+                  <div class="card-another" style="width: 30rem">
+                            {% if member.image %}
+                            <img src="{{ member.image.url }}" class="card-img-top" alt="Team Member Image">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ member.name }}</h5>
+                                <h5 class="card-title">{{ member.post }}</h5>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                       
+                    </div>
+                </div>
+
+                <div class="header1">
+                    <h1>Website developers</h1>
+                </div>
+                <div class="about-cards-container">
+                    <div class="card-another" style="width: 30rem">
+                        <img src="montserrat/man1.png" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Ayush</h5>
+                        </div>
+                    </div>
+                    <div class="card-another" style="width: 30rem">
+                        <img src="montserrat/man2.png" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Krishna</h5>
+                        </div>
+                    </div>
+                    <div class="card-another" style="width: 30rem">
+                        <img src="montserrat/man3.png" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Utkarsh</h5>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="footer">
+                    <div class="headFooter">
+                        <h1>CONTACT US</h1>
+                    </div>
+                    <div class="downFooter1">
+                        <h1>SMILE CLUB</h1>
+                    </div>
+                    <div class="downFooter2">
+                        <p>copyright@123</p>
+                        <p>Support Us</p>
+                    </div>
+                    <div class="footerLogo">
+                        <img class="invert" src="https://cdn.hugeicons.com/icons/instagram-stroke-rounded.svg"
+                            alt="instagram" width="24" height="24">
+                        <img class="invert" src="https://cdn.hugeicons.com/icons/facebook-01-stroke-rounded.svg"
+                            alt="facebook-01" width="24" height="24" />
+                        <img class="invert" src="https://cdn.hugeicons.com/icons/twitter-stroke-rounded.svg"
+                            alt="twitter" width="24" height="24" />
+                        <img class="invert" src="https://cdn.hugeicons.com/icons/linkedin-01-stroke-rounded.svg"
+                            alt="linkedin-01" width="24" height="24" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+            integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
+            integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{% static 'index.js' %}"></script>
+</body>
+</body>
+
 </html>
