@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 import uuid  # Required for unique post instances
 from django.contrib.auth.models import User  # Import the User model
-from lunardate import LunarDate
 
 class b_post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
@@ -87,14 +86,9 @@ class Event(models.Model):
     about = models.TextField(max_length=1000, blank=True)
     event_date = models.DateTimeField()
     image = models.ImageField(upload_to='post_images/', blank=True)
-    lunar_date = models.CharField(max_length=20, blank=True, null=True)
+    lunar_date = models.CharField(max_length=50, blank=True, null=True)
 
-    def save(self, *args, **kwargs):
-        """Override save method to calculate and save lunar date."""
-        super().save(*args, **kwargs)
-        lunar_date = LunarDate.fromSolarDate(self.event_date.year, self.event_date.month, self.event_date.day)
-        self.lunar_date = str(lunar_date)
-        super().save(*args, **kwargs)
+
 
     def __str__(self):
         """String for representing the Model object."""

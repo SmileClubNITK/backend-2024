@@ -1,183 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smile Club</title>
-    <link
-      rel="shortcut icon"
-      href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
-      type="image/x-icon"
-    />
-   
-    <style>
-      *{
-        margin:0;
-        padding:0;
-        font-family:'Poppins', sans-serif;
-        box-sizing:border-box;
-      }
-      body{
-        background: radial-gradient(closest-corner, #fa0101, #f3f70a);
-      }
-      .timeline{
-        position:relative;
-        max-width:1200px;
-        margin:100px auto;
-      }
-      .container{
-        padding:10px 50px;
-        position:relative;
-        width:50%;
-        animation:movedown 1s linear forwards;
-        opacity:0;
-      }
-      @keyframes movedown{
-        0%{
-          opacity:1;
-          transform: translateY(-30px);
-        }
-        100%{
-          opacity:1;
-          transform: translateY(0px);
-        }
-      }
-      .container:nth-child(1){
-        animation-delay:0s;
-      }
-      .container:nth-child(2){
-        animation-delay:1s;
-      }
-      .container:nth-child(3){
-        animation-delay:2s;
-      }
-      .container:nth-child(4){
-        animation-delay:3s;
-      }
-      .container:nth-child(5){
-        animation-delay:4s;
-      }
-      .container:nth-child(6){
-        animation-delay:5s;
-      }
-      .text-box{
-        padding:20px 30px;
-        background:#fff;
-        position:relative;
-        border-radius: 6px;
-        font-size:15px;
-      }
-      .left-container{
-        left:0;
-      }
-      .right-container{
-        left:50%;
-      }
-      .container img{
-        position:absolute;
-        width:40px;
-        border-radius: 50%;
-        right:-20px;
-        top:32px;
-        z-index:10;
-      }
-      .right-container img{
-        left:-20px;
-      }
-      .timeline::after{
-        content:' ';
-        position:absolute;
-        width:6px;
-        height:100%;
-        background:#fff;
-        top:0;
-        left:50%;
-        margin-left:-3px;
-        z-index:-1;
-        animation: moveline 6s linear forwards;
-      }
-      @keyframes moveline{
-        0%{
-          height:0;
-        }
-        100%{
-          height:100%;
-        }
-      }
-      .left-container-arrow{
-        height:0;
-        width:0;
-        position:absolute;
-        top:28px;
-        z-index:1;
-        border-top:15px solid transparent;
-        border-bottom:15px solid transparent;
-        border-left:15px solid #fff;
-        right:-15px;
-      }
-      .right-container-arrow{
-        height:0;
-        width:0;
-        position:absolute;
-        top:28px;
-        z-index:1;
-        border-top:15px solid transparent;
-        border-bottom:15px solid transparent;
-        border-right:15px solid #fff;
-        left:-15px;
-      }
-      @media screen and (max-width: 600px){
-        .timeline{
-          margin: 50px auto;
-        }
-        .timeline::after{
-          left:31px;
-        }
-        .container{
-          width:100%;
-          padding-left:80px;
-          padding-right:25px;
-        }
-        .text-box{
-          font-size:13px;
-        }
-        .text-box small{
-          margin-bottom:10px;
-        }
-        .right-container{
-          left:0;
-        }
-        .left-container img, .right-container img{
-          left:10px;
-        }
-        .left-container-arrow, .right-container-arrow{
-          border-right:15px solid #fff;
-          border-left:0;
-          left:-15px;
-        }
-      }
-    </style>
+    <title>Transparent Card</title>
+    <link rel="stylesheet" href="{% static 'timeline.css' %}" />
+    <link rel="stylesheet" href="{% static 'navbar.css' %}" />
+
   </head>
 
+  {%include 'navbar.html' %}
   <body>
     <div class="timeline">
       {% for event in events %}
-      <div class="container left-container">
-        {% if event.image %}
-            <img src="{{ event.image.url }}" alt="{{ event.name }}">
-            {% endif %}
-        <div class="text-box">
-          <h2>{{ event.name }}</h2>
-          <small>{{ event.event_date }}</small>
-          <small>Lunar Date: {{ event.lunar_date }}</small>
-          <p>{{ event.about }}</p>
-          <span class="left-container-arrow"></span>
+                <a href="{% url 'event_detail' event.id %}">
+      <div class="container {% cycle 'left-container' 'right-container' %}">
+        <img src="/montserrat/sc.png" alt="" />
+        <div
+          class="text-box {% if forloop.counter0|divisibleby:2 %}left-text-box{% else %}right-text-box{% endif %}"
+          style="
+            background-image: url('/montserrat/blu.jpg');
+            background-size: cover;
+          "
+        >
+          <div
+            class="date {% if forloop.counter0|divisibleby:2 %}left-date{% else %}right-date{% endif %}"
+          >
+            {{ event.event_date }}
+            <br>
+            {{ event.lunar_date }}
+          </div>
+          <br />
+          <h1 class="event-heading">{{ event.name }}</h1>
+          <br />
+          <div>{{ event.about }}</div>
+          <span
+            class="{% if forloop.counter0|divisibleby:2 %}left-container-arrow{% else %}right-container-arrow{% endif %}"
+          ></span>
         </div>
       </div>
       {% endfor %}
-
-      
     </div>
-    
   </body>
 </html>

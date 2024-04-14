@@ -46,3 +46,9 @@ def event_list(request):
     events = Event.objects.order_by('event_date')  # Fetch events sorted by event_date
     context = {'events': events}
     return render(request, 'timeline.html', context)
+
+
+
+def event_detail(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    return render(request, 'event.html', {'event': event})
