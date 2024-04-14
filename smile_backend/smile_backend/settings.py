@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'rest_framework',
     'corsheaders',
+    'bootstrap5',
     
 ]
 

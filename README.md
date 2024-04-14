@@ -36,3 +36,5 @@ now we can view the post in http://127.0.0.1:8000/blogs/post/uuid/          note
 
 sorry : just testing purposes so routes r not well set
 
+
+py -m pip freeze > requirements.txt

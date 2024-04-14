@@ -1,232 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
-{%load static%}
-<head>
+  {%load static%}
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smile Club</title>
-    <link rel="shortcut icon"
-        href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
-        type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'style.css' %}" /></head>
+    {% comment %} <link
+      rel="shortcut icon"
+      href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
+      type="image/x-icon"
+    /> {% endcomment %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    {% comment %} <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    /> {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
 
-<body>
-    <div id="nav">
-        <img class="logo" alt="Owner avatar" src="https://avatars.githubusercontent.com/u/146611856?s=48&amp;v=4" width="40" height="15">      
-        <h3>Home</h3>
-        <h3>About</h3>
-        <h3>All Articles</h3>
-        <h3>Contact</h3>
-        <h3>Forum</h3>
-        <h3>Categories</h3>
-        <!-- <li class="dropdown">
-            <a href="#"><h3>Categories</h3></a>
-            <div class="dropdown-content">
-              <div class="column">
-                <a href="#">Category 1</a>
-                <a href="#">Category 2</a>
-                <a href="#">Category 3</a>
-              </div>
-              <div class="column">
-                <a href="#">Category 4</a>
-                <a href="#">Category 5</a>
-                <a href="#">Category 6</a>
-              </div>
-            </div>
-          </li> -->
-          <div class="nav-right">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <div class="mx-2">
-                <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Login</button>
-                <button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">Sign Up</button>
-            </div>
+    <link rel="stylesheet" href="{% static 'style.css' %}" /></head>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin:0;
+            padding: 0;
+        }
+        body {
+        --color1: #fff;
+        --color2: #181818;
+      }
+      footer {
+        position: relative;
+        width: 100%;
+        background: black;
+        min-height: 100px;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      footer .social_icon,
+      footer .menu {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+        flex-wrap: wrap;
+      }
+
+      footer .social_icon li,
+      footer .menu li {
+        list-style: none;
+      }
+      footer .social_icon li a {
+        font-size: 2em;
+        color: #fff;
+        margin: 0 10px;
+        display: inline-block;
+        transition: 0.5s;
+      }
+      footer .social_icon li a:hover {
+        transform: translateY(-10);
+      }
+      footer .menu li a {
+        font-size: 1.2em;
+        color: #fff;
+        margin: 0 10px;
+        display: inline-block;
+        text-decoration: none;
+        opacity: 0.75;
+      }
+      footer .menu li a:hover {
+        opacity: 1;
+      }
+      footer p {
+        color: #fff;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+      footer .wave {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url(montserrat/wave.png); /* Use the wave image as background */
+        background-size: 1000px 100px;
+      }
+      footer .wave#wave1 {
+        z-index: 1000;
+        opacity: 1;
+        bottom: 0;
+        animation: animateWave 4s linear infinite;
+      }
+      footer .wave#wave2 {
+        z-index: 999;
+        opacity: 0.5;
+        bottom: 10px;
+        animation: animateWave_02 4s linear infinite;
+      }
+      footer .wave#wave3 {
+        z-index: 1000;
+        opacity: 0.2;
+        bottom: 15px;
+        animation: animateWave 3s linear infinite;
+      }
+      footer .wave#wave4 {
+        z-index: 999;
+        opacity: 0.7;
+        bottom: 20px;
+        animation: animateWave_02 3s linear infinite;
+      }
+      @keyframes animateWave {
+        0% {
+          background-position-x: 1000px;
+        }
+        100% {
+          background-position-x: 0px;
+        }
+      }
+      @keyframes animateWave_02 {
+        0% {
+          background-position-x: 0px;
+        }
+        100% {
+          background-position-x: 1000px;
+        }
+      }
+      .page4_header {
+        width: 100%;
+        text-align: center;
+        margin-top: 250px;
+      }
+     header{
+        width:100%;
+        height:100px;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 99;
+        box-shadow: 0 0 10px #000;
+        background: rgba(0,0,0,0.5);
+
+     }
+     #chk1{
+        display:none;
+     }
+     i{
+        color:#fff;
+        cursor:pointer;
+     }
+     header .logo{
+        flex:1;
+        color:#fff;
+        margin-left:50px;
+        text-transform:uppercase;
+        font-size: 15px;
+     }
+     header .search-box{
+        flex:1;
+        position: relative;
+        
+     }
+     .search-box input{
+        width:100%;
+        height:40px;
+        border:none;
+        outline: none;
+        background: #f2f2f2;
+        border-radius: 30px;
+        color:grey;
+        font-size: 16px;
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 40px;
+       
+     }
+     .search-box button{
+        cursor:pointer;
+        width:40px;
+        height: 40px;
+        border-radius: 30px;
+        border: none;
+        position: absolute;
+        top:0;
+        right:0;
+        transform: scale(0.9);
+        background: rgb(14, 14, 14);
+     }
+     header ul{
+        flex:2;
+        display: flex;
+        justify-content: space-between;
+     }
+     header ul li{
+        list-style: none;
+     }
+     header ul li a{
+        text-decoration: none;
+        color:#fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding:10px 15px;
+     }
+     header ul li a:hover{
+        border-bottom: 2px solid cadetblue;
+     }
+     header .menu{
+        font-size:2.5rem;
+        display: none;
+     }
+     @media(max-width:1000px){
+        .search-box button{
+            position: absolute;
+        }
+        header ul{
+            position: fixed;
+            top:100px;
+            right:-100%;
+            background: rgba(0,0,0,0.5);
+            height: calc(100vh - 100px);
+            width:50%;
+            flex-direction: column;
+            align-items: center;
+            transition: right 0.5s linear;
+        }
+        header .menu{
+            display: block;
+            width:100px;
+            text-align: center;
+        }
+        #chk1:checked ~ ul{
+            right:0;
+        }
+     }
+     @media(max-width:600px){
+        header .logo{
+            font-size: 10px;
+            margin-left: 8px;
+        }
+        header ul{
+            width:100%;
+        }
+     }
+     .logo img{
+        height:40px;
+        width:40px;
+        margin-top: 20px;
+        margin-left: 25px;
+     }
+    </style>
+  </head>
+
+  <body>
+    <header>
+        <input type="checkbox" name="" id="chk1">
+        <div class="logo">
+            <img src="montserrat/sc.png" alt="Smile Club Logo"> <!-- Insert your logo image here -->
+            <p>Smile club</p>
         </div>
-    </div>
+        <div class="search-box">
+            <form action="">
+                <input type="text" name="search" id="srch" placeholder="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+               
+               
+            </li>
+        </ul>
+        <div class="menu">
+            <label for="chk1">
+                <i class="fa fa-bars"></i>
+            </label>
+        </div>
+    </header>
+   
     <div id="cursor"></div>
     <div id="cursor-blur"></div>
 
     <video autoplay loop muted src="help.mp4"></video>
     <div id="main">
-        <div id="page1">
-            
-            <h2>Welcome to SMILE CLUB</h2>
-            <p>Lets make the whole world noble</p>
-            <div id="arrow">
-                <i class="ri-arrow-down-line"></i>
-            </div>
-            
-               
+      <div id="page1">
+        <h2>Welcome to SMILE CLUB</h2>
+        <p>Lets make the whole world noble</p>
+        <div id="arrow">
+          <i class="ri-arrow-down-line"></i>
         </div>
-        <div id="page2">
-            <div id="scroller">
-                <div id="scroller-in">
-                   <h4>WELCOME TO SMILE CLUB FAMILY !</h4>
-                </div>
-                <div id="scroller-in">
-                   <h4>WELCOME TO SMILE CLUB FAMILY ! </h4>
-                </div>
-            </div>
-            <div id="about-us">
-                <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-1-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
-                    alt="" /> -->
-                <div id="about-us-in">
-                    <h3>ABOUT US</h3>
-                    <p>
-                        Welcome to our spiritual club, where diverse souls unite in a haven of enlightenment. Through meditation and reflection, we nurture inner peace and compassion. We celebrate growth, embracing transformation and interconnectedness. Together, we are beacons of light, spreading love and kindness in our community. Join us on this profound journey of self-discovery and unity.
-
-                    </p>
-                </div>
-                <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-2-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
-                    alt="" /> -->
-            </div>
-            <div id="cards-container">
-                <div class="card" id="card1">
-                    <div class="overlay">
-                        <h4>Mission</h4>
-                        <p>
-                            Our mission is to inspire spiritual growth 
-                            and enlightenment, fostering a deep sense 
-                            of connection and understanding within our 
-                            community.
-                        </p>
-                    </div>
-                </div>
-                <div class="card" id="card2">
-                    <div class="overlay">
-                        <h4>Culture</h4>
-                        <p>
-                            The culture of our club is rooted in compassion, 
-                            empathy, and inclusivity, where diverse perspectives
-                            are welcomed and celebrated. We promote open-mindedness, 
-                            mutual respect, and a commitment to personal and 
-                            collective growth.
-                        </p>
-                    </div>
-                </div>
-                <div class="card" id="card3">
-                    <div class="overlay">
-                        <h4>Nation</h4>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
-                            quam molestias magni cupiditate architecto et enim quas facere
-                            ipsum tempora?
-                        </p>
-                    </div>
-                </div>
-                <div class="card" id="card4">
-                    <div class="overlay">
-                        <h4>Civilization</h4>
-                        <p>
-                            In our club, we aim to transcend boundaries of nationality, 
-                            ethnicity, and background, embracing the shared humanity 
-                            that unites us all. We foster a sense of global citizenship,
-                            honoring the richness of diverse cultures while emphasizing
-                            common values of peace, cooperation, and understanding.
-
-                        </p>
-                    </div>
-                </div>
-                <div class="card" id="card5">
-                    <div class="overlay">
-                        <h4>Character Building</h4>
-                        <p>
-                            Character building is at the core of our club's ethos,
-                            where we emphasize the development of virtues such as
-                            integrity, compassion, resilience, and inner strength.
-                            Through various practices and discussions, we empower
-                            individuals to cultivate their best selves, embodying
-                            qualities that contribute positively to both personal 
-                            growth and the betterment of society.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div id="green-div">
-                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="" />
-                <h4>
-                    TO GET THE LATEST NEWS,EVENTS AND UPDATES ABOUT THE CLUB, CLICK HERE ! 
-                </h4>
-                <button class="black-button">Click Here</button>
-                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="" />
-            </div>
+      </div>
+      <div id="page2">
+        <div id="scroller">
+          <div id="scroller-in">
+            <h4>WELCOME TO SMILE CLUB FAMILY !</h4>
+          </div>
+          <div id="scroller-in">
+            <h4>WELCOME TO SMILE CLUB FAMILY !</h4>
+          </div>
         </div>
-        <div id="page3">
+        <div id="about-us">
+          <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-1-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                    alt="" /> -->
+          <div id="about-us-in">
+            <h3>ABOUT US</h3>
             <p>
-                Set forth your efforts with determination, yet remain detached from the 
-                outcome, for action is superior to inaction. The Bhagavad Gita teaches
-                 us to fulfill our duties with dedication, embracing the journey of 
-                 self-discovery through righteous action.
+              Welcome to our spiritual club, where diverse souls unite in a
+              haven of enlightenment. Through meditation and reflection, we
+              nurture inner peace and compassion. We celebrate growth, embracing
+              transformation and interconnectedness. Together, we are beacons of
+              light, spreading love and kindness in our community. Join us on
+              this profound journey of self-discovery and unity.
             </p>
-            <img id="colon1" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
-                alt="" />
-            <img id="colon2" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
-                alt="" />
+          </div>
+          <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-2-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                    alt="" /> -->
         </div>
-        <div id="page4">
-            <h1> OUR ACHIEVEMENTS</h1>
-            <div class="elem">
-                <h2>Amog Lila Prabhu</h2>
-                <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg"
-                    alt="" />
+        <div id="cards-container">
+          <div class="card" id="card1">
+            <div class="overlay">
+              <h4>Mission</h4>
+              <p>
+                Our mission is to inspire spiritual growth and enlightenment,
+                fostering a deep sense of connection and understanding within
+                our community.
+              </p>
             </div>
-            <div class="elem">
-                <h2>More Than 20 events this semester</h2>
-                <img src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="" />
+          </div>
+
+          <div class="card" id="card2">
+            <div class="overlay">
+              <h4>Culture</h4>
+              <p>
+                The culture of our club is rooted in compassion, empathy, and
+                inclusivity, where diverse perspectives are welcomed and
+                celebrated. We promote open-mindedness, mutual respect, and a
+                commitment to personal and collective growth.
+              </p>
             </div>
-            <div class="elem">
-                <h2>Mahashivratri Celeberations</h2>
-                <img src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="" />
+          </div>
+          <div class="card" id="card3">
+            <div class="overlay">
+              <h4>Nation</h4>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
+                quam molestias magni cupiditate architecto et enim quas facere
+                ipsum tempora?
+              </p>
             </div>
-            <div class="elem">
-                <h2>More than 25 recruitments done this week</h2>
-                <img src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="" />
+          </div>
+          <div class="card" id="card4">
+            <div class="overlay">
+              <h4>Civilization</h4>
+              <p>
+                In our club, we aim to transcend boundaries of nationality,
+                ethnicity, and background, embracing the shared humanity that
+                unites us all. We foster a sense of global citizenship, honoring
+                the richness of diverse cultures while emphasizing common values
+                of peace, cooperation, and understanding.
+              </p>
             </div>
-            <div class="elem">
-                <h2>Many more</h2>
-                <img src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="" />
+          </div>
+          <div class="card" id="card5">
+            <div class="overlay">
+              <h4>Character Building</h4>
+              <p>
+                Character building is at the core of our club's ethos, where we
+                emphasize the development of virtues such as integrity,
+                compassion, resilience, and inner strength. Through various
+                practices and discussions, we empower individuals to cultivate
+                their best selves, embodying qualities that contribute
+                positively to both personal growth and the betterment of
+                society.
+              </p>
             </div>
+          </div>
         </div>
-        
-        <div id="footer">
-            <div class="headFooter">
-                <h1>CONTACT US</h1>
-            </div>
-           
-            
-            <div class="downFooter1">
-                <h1>SMILE CLUB</h1>
-                
-            </div>
-            <div class="downFooter2">
-                <p>copyright@123</p>
-                <p>Support Us</p>
-            </div>
-            <div class="footerLogo">
-                <img class="invert" src="https://cdn.hugeicons.com/icons/instagram-stroke-rounded.svg" alt="instagram" width="24" height="24">
-                <img class="invert" src="https://cdn.hugeicons.com/icons/facebook-01-stroke-rounded.svg" alt="facebook-01" width="24" height="24" />
-                <img class="invert" src="https://cdn.hugeicons.com/icons/twitter-stroke-rounded.svg" alt="twitter" width="24" height="24" />
-                <img class="invert" src="https://cdn.hugeicons.com/icons/linkedin-01-stroke-rounded.svg" alt="linkedin-01" width="24" height="24" />
-            </div>
+        <div id="green-div">
+          <img
+            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+            alt=""
+          />
+          <h4>
+            TO GET THE LATEST NEWS,EVENTS AND UPDATES ABOUT THE CLUB, CLICK HERE
+            !
+          </h4>
+          <button class="black-button">Click Here</button>
+          <img
+            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+            alt=""
+          />
         </div>
-        
+      </div>
+      <div id="page3">
+        <p>
+          Set forth your efforts with determination, yet remain detached from
+          the outcome, for action is superior to inaction. The Bhagavad Gita
+          teaches us to fulfill our duties with dedication, embracing the
+          journey of self-discovery through righteous action.
+        </p>
+        <img
+          id="colon1"
+          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
+          alt=""
+        />
+        <img
+          id="colon2"
+          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
+          alt=""
+        />
+      </div>
+      <div id="page4">
+        <h1 class="page4_header">OUR ACHIEVEMENTS</h1>
+        <div class="elem">
+          <h2>Amog Lila Prabhu</h2>
+          <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg" alt="" />
+        </div>
+        <div class="elem">
+          <h2>More Than 20 events this semester</h2>
+          <img
+            src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+        <div class="elem">
+          <h2>Mahashivratri Celeberations</h2>
+          <img
+            src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+        <div class="elem">
+          <h2>More than 25 recruitments done this week</h2>
+          <img
+            src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+        <div class="elem">
+          <h2>Many more</h2>
+          <img
+            src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
+    <footer>
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social_icon">
+        <li>
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About </a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <p>@2024 Smile Club | All rights reserved</p>
+    </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
-        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
-        integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="{% static 'index.js' %}"></script></body>
-
+    {% comment %} <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+      integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
+      integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="{% static 'index.js' %}"></script></body>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script> {% endcomment %}
+  </body>
 </html>
