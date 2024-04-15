@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView
-from .models import b_post, Comment, ContentBlock,Team ,Event # Import ContentBlock model
-
+from .models import b_post, Comment, ContentBlock,Team ,Event,Quote,Yvideos,ImgGrp# Import ContentBlock model
+import datetime
 class PostDetailView(DetailView):
     model = b_post
     template_name = 'post_detail.html'
@@ -52,3 +52,34 @@ def event_list(request):
 def event_detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'event.html', {'event': event})
+
+
+def weekly_quote(request):
+    # Calculate the current week number
+    current_week_number = datetime.date.today().isocalendar()[1]
+
+    # Retrieve the quote for the current week
+    quote = Quote.objects.all()[current_week_number % Quote.objects.count()]
+
+    return render(request, 'quote_template.html', {'quote': quote})
+
+
+# {{ quote.quote }}
+def display_youtube_videos(request):
+    # Retrieve all YouTube videos from the database
+    videos = Yvideos.objects.all()
+    
+    return render(request, 'ytube.html', {'videos': videos})
+
+def gallery(request):
+    # Retrieve all image groups and their images
+    image_groups = ImgGrp.objects.all()
+
+    return render(request, 'gallery.html', {'image_groups': image_groups})
+
+def latest_blogs_and_events(request):
+    # Retrieve the two latest blog posts and events
+    latest_blogs = b_post.objects.filter(status='published').order_by('-id')[:2]
+    latest_events = Event.objects.order_by('-event_date')[:2]
+
+    return render(request, 'l.html', {'latest_blogs': latest_blogs, 'latest_events': latest_events})

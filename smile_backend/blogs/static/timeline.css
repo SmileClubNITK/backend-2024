@@ -240,7 +240,7 @@ body {
 .text-box h1,
 .text-box h2,
 .text-box h3 {
-  color: #fff;
+  color: #fff !important;
   font-size: 1.5rem;
 }
 

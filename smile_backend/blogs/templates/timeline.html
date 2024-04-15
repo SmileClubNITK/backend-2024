@@ -14,7 +14,7 @@
   <body>
     <div class="timeline">
       {% for event in events %}
-                <a href="{% url 'event_detail' event.id %}">
+                <a href="{% url 'event_detail' event.id %}" style="text-decoration:none;">
       <div class="container {% cycle 'left-container' 'right-container' %}">
         <img src="/montserrat/sc.png" alt="" />
         <div

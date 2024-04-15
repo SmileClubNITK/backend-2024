@@ -1,0 +1,58 @@
+<!-- youtube_videos.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Videos</title>
+    <style>
+        /* Style for the container */
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Adjust as needed */
+        }
+
+        /* Style for each video item */
+        .video-item {
+            width: calc(25% - 10px); /* Initially 4 in a row */
+            margin-bottom: 20px;
+        }
+
+        /* Responsive layout */
+        @media screen and (max-width: 1200px) {
+            .video-item {
+                width: calc(33.333% - 10px); /* 3 in a row */
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .video-item {
+                width: calc(50% - 10px); /* 2 in a row */
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .video-item {
+                width: calc(100% - 10px); /* 1 in a row */
+            }
+        }
+
+        /* Style for the iframe */
+        .video-item iframe {
+            width: 100%;
+            height: 200px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>YouTube Videos</h1>
+    <div class="video-container">
+        {% for video in videos %}
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/zsB1c4n5FPg?enablejsapi=1&origin=https://yourdomain.com&showinfo=0&iv_load_policy=3&modestbranding=1&theme=light&color=white&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <h2>{{ video.title }}</h2>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

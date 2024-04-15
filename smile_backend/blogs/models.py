@@ -93,3 +93,26 @@ class Event(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.name
+
+class Quote(models.Model):
+        quote = models.TextField(max_length=10000, blank=False)
+        
+class Yvideos(models.Model):
+    
+    title = models.CharField(max_length=50, blank=True, null=True)
+    
+    link = models.URLField()
+
+class ImgGrp (models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+class Image(models.Model):
+    heading = models.ForeignKey(ImgGrp, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='gallery_images/')
+    alt = models.CharField(max_length=60, blank=True, null=True)
+
+    def __str__(self):
+        return  self.image.name
