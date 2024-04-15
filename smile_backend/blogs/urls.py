@@ -1,7 +1,7 @@
 # urls.py
 
 from django.urls import path
-from .views import PostDetailView, add_comment_to_post,team_list_view,event_list,blog_list,post_detail,event_detail,display_youtube_videos,gallery,latest_blogs_and_events
+from .views import PostDetailView ,team_list_view,event_list,blog_list,post_detail,event_detail,display_youtube_videos,gallery,latest_blogs_and_events
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
@@ -14,7 +14,6 @@ urlpatterns = [
     path('timeline/', event_list, name='event-list'),
     path('blogs/', blog_list, name='blogs-list'),
     path('events/<int:event_id>/', event_detail, name='event_detail'),
-    path('post/<uuid:pk>/comment/', add_comment_to_post, name='add-comment'),
     path('youtube-videos/', display_youtube_videos, name='display_youtube_videos'),
     path('gallery/', gallery, name='gallery'),
     path('latest/', latest_blogs_and_events, name='latest_blogs_and_events'),

@@ -3,19 +3,25 @@ from django.urls import reverse
 import uuid  # Required for unique post instances
 from django.contrib.auth.models import User  # Import the User model
 
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
 class b_post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=100)
     cover_image = models.ImageField(upload_to='post_images/', blank=True)
-
+    abstract = models.CharField(max_length=200, null=True)
     author = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, related_name='posts')
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
     )
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-    tags = models.CharField(max_length=255, blank=True)  # Optional comma-separated tags
-    
+    tags = models.ManyToManyField(Tag, blank=True)  # Many-to-many relation with Tag model
+        
     def __str__(self):
         """String for representing the Model object."""
         return self.title
@@ -27,23 +33,24 @@ class b_post(models.Model):
 
 class Author(models.Model):
     """Model representing an author."""
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, blank=True)
     bio = models.TextField(max_length=1000, blank=True)
     # Other fields as needed
+    image = models.ImageField(upload_to='author_images/', blank=True)
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.user.username
+        return self.name
 
 
-class Comment(models.Model):
-    post = models.ForeignKey(b_post, on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-    content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add=True)
+# class Comment(models.Model):
+#     post = models.ForeignKey(b_post, on_delete=models.CASCADE, related_name='comments')
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+#     content = models.TextField()
+#     pub_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"Comment by {self.user.username if self.user else 'Anonymous'} on {self.post.title}"
+#     def __str__(self):
+#         return f"Comment by {self.user.username if self.user else 'Anonymous'} on {self.post.title}"
 
 
 class ContentBlock(models.Model):

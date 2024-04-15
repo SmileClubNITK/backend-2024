@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView
-from .models import b_post, Comment, ContentBlock,Team ,Event,Quote,Yvideos,ImgGrp# Import ContentBlock model
+from .models import b_post, ContentBlock,Team ,Event,Quote,Yvideos,ImgGrp# Import ContentBlock model
 import datetime
 class PostDetailView(DetailView):
     model = b_post
@@ -17,20 +17,21 @@ class PostDetailView(DetailView):
         context['content_blocks'] = content_blocks
         return context
 
-def add_comment_to_post(request, pk):
-    post = get_object_or_404(b_post, pk=pk)
-    if request.method == 'POST':
-        content = request.POST.get('content')
-        Comment.objects.create(post=post, user=request.user, content=content)
-        return redirect('post-detail', pk=pk)
-    # Pass the post object to the template with a valid ID
-    return render(request, 'post_detail.html', {'post': post})
+# def add_comment_to_post(request, pk):
+#     post = get_object_or_404(b_post, pk=pk)
+#     if request.method == 'POST':
+#         content = request.POST.get('content')
+#         Comment.objects.create(post=post, user=request.user, content=content)
+#         return redirect('post-detail', pk=pk)
+#     # Pass the post object to the template with a valid ID
+#     return render(request, 'post_detail.html', {'post': post})
 
 def blog_list(request):
     """View function to display a list of blog posts."""
     posts = b_post.objects.filter(status='published')  # Get all published blog posts
     context = {'posts': posts}
     return render(request, 'blog_list.html', context)
+
 def post_detail(request, post_id):
     # Retrieve the post object or return 404 if not found
     post = get_object_or_404(b_post, id=post_id)
@@ -61,7 +62,7 @@ def weekly_quote(request):
     # Retrieve the quote for the current week
     quote = Quote.objects.all()[current_week_number % Quote.objects.count()]
 
-    return render(request, 'quote_template.html', {'quote': quote})
+    return render(request, 'index.html', {'quote': quote})
 
 
 # {{ quote.quote }}

@@ -17,6 +17,8 @@
             margin-bottom: 20px;
             text-align: center;
             color: white;
+            length:100%%;
+            width:100%%;
         }
         
         .gallery {
@@ -59,14 +61,40 @@
     {% for image_group in image_groups %}
     <div class="image-group">
         <h2>{{ image_group.title }}</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
         <div class="gallery">
             {% for image in image_group.image_set.all %}
             <span style="--i:{{ forloop.counter }}">
                 <img src="{{ image.image.url }}" alt="{{ image.alt }}">
             </span>
+            
             {% endfor %}
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
+
     {% endfor %}
 </body>
 </html>

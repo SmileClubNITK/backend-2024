@@ -36,7 +36,12 @@
             {% endif %}
             <h2>{{ blog.title }}</h2>
             <p>Author: {{ blog.author }}</p>
-            <p>Tags: {{ blog.tags }}</p>
+            <p>Tags:
+                {% for tag in blog.tags.all %}
+                    {{ tag.name }}
+                    {% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </p>
         </div>
     </a>
     {% endfor %}
