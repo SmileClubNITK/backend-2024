@@ -5,17 +5,282 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transparent Card</title>
-    <link rel="stylesheet" href="{% static 'timeline.css' %}" />
     <link rel="stylesheet" href="{% static 'navbar.css' %}" />
 
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+      }
+      
+      body {
+        background: radial-gradient(closest-corner, #fa0101, #f3f70a);
+      }
+      
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 100px auto;
+        color: white;
+      }
+      
+      .container {
+        padding: 10px 50px;
+        position: relative;
+        width: 50%;
+        animation: movedown 1s linear forwards;
+        opacity: 0;
+        transition: transform 0.3s ease, font-size 0.3s ease;
+      }
+      
+      .event-heading {
+        color: #0ae432 !important;
+      }
+      
+      .text-box {
+        transition: transform 0.3s ease;
+        padding: 20px 30px;
+        background: #090909;
+        position: relative;
+        border-radius: 6px;
+        font-size: 15px;
+        word-wrap: break-word; /* or overflow-wrap: break-word; */
+      }
+      
+      .container:hover .text-box {
+        transform: scale(1.1);
+      }
+      
+      .container:hover .text-box h2 {
+        font-size: 24px;
+      }
+      
+      @keyframes movedown {
+        0% {
+            opacity: 1;
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+      }
+      
+      .container:nth-child(1) {
+        animation-delay: 0s;
+      }
+      
+      .container:nth-child(2) {
+        animation-delay: 1s;
+      }
+      
+      .container:nth-child(3) {
+        animation-delay: 2s;
+      }
+      
+      .container:nth-child(4) {
+        animation-delay: 3s;
+      }
+      
+      .container:nth-child(5) {
+        animation-delay: 4s;
+      }
+      
+      .container:nth-child(6) {
+        animation-delay: 5s;
+      }
+      
+      .left-text-box,
+      .right-text-box {
+        border-radius: 6px;
+      }
+      
+      .left-text-box {
+        border-left: 10px solid #0ae432;
+      }
+      
+      .right-text-box {
+        border-right: 10px solid #0ae432;
+      }
+      
+      .left-container {
+        left: 0;
+      }
+      
+      .right-container {
+        left: 50%;
+      }
+      
+      .container img {
+        position: absolute;
+        width: 40px;
+        border-radius: 50%;
+        z-index: 10;
+        top:35px
+      }
+      
+      .right-container img {
+        left: -20px;
+      }
+      .left-container img {
+        right: -20px;
+      }
+      
+      .timeline::after {
+        content: " ";
+        position: absolute;
+        width: 9px;
+        height: 100%;
+        background: #090909;
+        top: 0;
+        left: 50%;
+        margin-left: -3px;
+        z-index: -1;
+        animation: moveline 6s linear forwards;
+      }
+      
+      @keyframes moveline {
+        0% {
+            height: 0;
+        }
+        100% {
+            height: 100%;
+        }
+      }
+      
+      .left-container-arrow,
+      .right-container-arrow {
+        height: 0;
+        width: 0;
+        position: absolute;
+        top: 28px;
+        z-index: 1;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+      }
+      
+      .left-container-arrow {
+        border-left: 15px solid #0ae432;
+        right: -15px;
+      }
+      
+      .right-container-arrow {
+        border-right: 15px solid #0ae432;
+        left: -15px;
+      }
+      
+      .text-box:hover {
+        transition: color 0.5s ease;
+      }
+      
+      .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        transition: opacity 0.5s ease;
+      }
+      
+      .container:hover .background-image {
+        opacity: 0.5;
+      }
+      
+      @media screen and (max-width: 600px) {
+        .timeline {
+            margin: 50px auto;
+        }
+        .timeline::after {
+            left: 31px;
+        }
+        .container {
+            width: 100%;
+            padding-left: 80px;
+            padding-right: 25px;
+        }
+        .text-box {
+            font-size: 13px;
+        }
+        .text-box small {
+            margin-bottom: 10px;
+        }
+        .right-container {
+            left: 0;
+        }
+        .left-container img,
+        .right-container img {
+            left: 10px;
+        }
+        .left-container-arrow,
+        .right-container-arrow {
+            border-right: 15px solid #fff;
+            border-left: 0;
+            left: -15px;
+        }
+        .left-text-box {
+          border-left: 0px ;
+          border-right: 10px solid #0ae432;
+        }
+      }
+      
+      /* Date Flap */
+      .date {
+        --dateH: 3rem;
+        height: auto;
+        width: auto;
+        margin-inline: calc(var(--inlineP) * -1);
+        text-align: center;
+        background-color: #0ae432;
+        color: white;
+        font-size: 1.25rem;
+        font-weight: 700;
+        display: grid;
+        place-content: center;
+        position: relative;
+        word-wrap: break-word; /* or overflow-wrap: break-word; */
+        overflow-wrap: break-word; /* Ensure long words wrap */
+        max-width: 100%; /* Limit width to prevent overflow */
+        min-width: auto; /* Allow width to adjust based on content */
+      }
+      .left-date,
+      .right-date {
+        border-radius: calc(var(--dateH) / 2) calc(var(--dateH) / 2) calc(var(--dateH) / 2) calc(var(--dateH) / 2);
+      }
+      
+      .text-box h1,
+      .text-box h2,
+      .text-box h3 {
+        color: #fff !important;
+        font-size: 1.5rem;
+      }
+      
+      .text-box h3 {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      
+      .text-box {
+        padding: 20px;
+      }
+      
+      .text-box h1,
+      .text-box h2 {
+        line-height: 1.5;
+      }
+      
+    </style>
   </head>
 
   {%include 'navbar.html' %}
   <body>
     <div class="timeline">
       {% for event in events %}
-                <a href="{% url 'event_detail' event.id %}" style="text-decoration:none;">
-      <div class="container {% cycle 'left-container' 'right-container' %}">
+          <a href="{% url 'event_detail' event.id %}" style="text-decoration : none;">
+      <div class="container {% if forloop.counter0|divisibleby:2 %}left-container{% else %}right-container{% endif %}">
         <img src="{% static 'media/timeline/testing.jpeg' %}" alt="Test Image">
         <div
           class="text-box {% if forloop.counter0|divisibleby:2 %}left-text-box{% else %}right-text-box{% endif %}"
