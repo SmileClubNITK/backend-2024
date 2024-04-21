@@ -16,7 +16,7 @@
       {% for event in events %}
                 <a href="{% url 'event_detail' event.id %}" style="text-decoration:none;">
       <div class="container {% cycle 'left-container' 'right-container' %}">
-        <img src="/montserrat/sc.png" alt="" />
+        <img src="{% static 'media/timeline/testing.jpeg' %}" alt="Test Image">
         <div
           class="text-box {% if forloop.counter0|divisibleby:2 %}left-text-box{% else %}right-text-box{% endif %}"
           style="

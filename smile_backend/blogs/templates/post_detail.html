@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,6 +74,8 @@
       z-index: 10;
       background: white;
       padding: 20px 15px;
+      max-width: 100%;
+    overflow-wrap: break-word;
     }
     .blog-card:hover .date__box {
       opacity: 1;
@@ -87,6 +90,7 @@
     .blog-card:hover .blog-card__info h1 {
       color: #f5470d;
     }
+  
     a.icon-link {
       color: #363738;
       transition: 200ms ease-in-out;
@@ -135,9 +139,6 @@
     .btn.btn--only-icon {
       width: 50px;
     }
-    .full-content {
-      display: none;
-    }
     .small-button {
   display: inline-block;
   padding: 5px 20px;
@@ -151,6 +152,12 @@
 .title{
     font-size: 45px ;
 }
+.author_name{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
     /* ///////////// */
     
   </style>
@@ -184,7 +191,7 @@
             <h1 class = "title">{{ post.title }}</h1>
             <p>
               <a href="#" class="icon-link mr-3"
-                ><i class="fa fa-pencil-square-o"></i> <h3>{{ post.author }}</h3></a
+                ><i class="fa fa-pencil-square-o"></i> <p class="author_name">{{ post.author }}</p></a
               >
             </p>
             {% for tag in post.tags.all %}
@@ -195,9 +202,9 @@
             {% for block in post.content_blocks.all %}
             {% if block.order_type == 'paragraph' %}
             {% comment %} <div class="full-content"> {% endcomment %}
-                <h4>
+                <p>
                     {{ block.text }}
-                </h4>
+                </p>
               {% comment %} </div> {% endcomment %}
                 <!-- <p>{{ block.text }}</p> -->
             {% elif block.order_type == 'image' %}

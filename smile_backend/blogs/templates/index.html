@@ -262,6 +262,349 @@
         margin-top: 20px;
         margin-left: 25px;
      }
+     /* ////////////// */
+     @import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+
+:root {
+  --color: #3c3163;
+  --transition-time: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background: #fafafa;
+}
+
+a {
+  color: inherit;
+}
+
+.cards-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
+  flex-wrap: wrap;
+}
+
+.card {
+  font-family: 'Heebo', sans-serif;
+  --bg-filter-opacity: 0.5;
+  background-image: linear-gradient(rgba(0, 0, 0, var(--bg-filter-opacity)), rgba(0, 0, 0, var(--bg-filter-opacity))), var(--bg-img);
+  height: 20em;
+  width: 15em;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 1em;
+  padding: 1em;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5em -1em black;
+  transition: all var(--transition-time);
+  position: relative;
+  overflow: hidden;
+  border: 10px solid #ccc;
+  text-decoration: none;
+}
+
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+.card p {
+  font-size: 0.75em;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 0.5em;
+  line-height: 2em;
+}
+
+.card .tags {
+  display: flex;
+}
+
+
+.card:before,
+.card:after {
+  content: '';
+  transform: scale(0);
+  transform-origin: top left;
+  border-radius: 50%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  z-index: -5;
+  transition: all var(--transition-time);
+  transition-timing-function: ease-in-out;
+}
+
+.card:before {
+  background: #ddd;
+  width: 250%;
+  height: 250%;
+}
+
+.card:after {
+  background: white;
+  width: 200%;
+  height: 200%;
+}
+
+.card:hover {
+ transform: scale(1.2);
+}
+
+.card-grid-space .num {
+  font-size: 3em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+}
+
+.info {
+  font-size: 1.2em;
+  display: flex;
+  padding: 1em 3em;
+  height: 3em;
+}
+
+.info img {
+  height: 3em;
+  margin-right: 0.5em;
+}
+
+.info h1 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    justify-content: center;
+  }
+  .card-grid-space .num {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards-wrapper {
+    padding: 4rem 2rem;
+  }
+  .card {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0;
+  }
+}
+
+     /* /////////////// */
+     /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ebecf0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+
+  a {
+    text-decoration: none;
+    color: #172b4d;
+  }
+
+  h1 {
+    font-family: "Song Myung", serif;
+  }
+}
+
+/* DEFAULT STYLE */
+:root {
+  font-size: 16px;
+  --card-img-height: 200px;
+}
+.card-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease-in-out;
+  margin-bottom: 300px;
+}
+
+.card {
+  align-self: flex-start;
+  position: relative;
+  width: 325px;
+  min-width: 275px;
+  margin: 1.25rem 0.75rem;
+  background: white;
+  transition: all 300ms ease-in-out;
+
+  .card-img {
+    visibility: hidden;
+    width: 100%;
+    height: var(--card-img-height);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .card-img-hovered {
+    --card-img-hovered-overlay: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    );
+    transition: all 350ms ease-in-out;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    height: var(--card-img-height);
+    top: 0;
+  }
+
+  .card-info {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    transition: all 200ms ease-in-out;
+
+    .card-about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      transition: all 200ms ease-in-out;
+
+      .card-tag {
+        width: 60px;
+        max-width: 100px;
+        padding: 0.2rem 0.5rem;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: #505f79;
+        color: #fff;
+
+        &.tag-news {
+          background: #36b37e;
+        }
+
+        &.tag-deals {
+          background: #ffab00;
+        }
+
+        &.tag-politics {
+          width: 71px;
+          background: #ff5630;
+        }
+      }
+    }
+
+    .card-title {
+      z-index: 10;
+      font-size: 1.5rem;
+      padding-bottom: 0.75rem;
+      transition: all 350ms ease-in-out;
+    }
+
+    .card-creator {
+      padding-bottom: 0.75rem;
+      transition: all 250ms ease-in-out;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 15px 35px rgba(227, 252, 239, 0.1),
+      0px 5px 15px rgba(0, 0, 0, 0.07);
+    transform: scale(1.025);
+
+    .card-img-hovered {
+      --card-img-hovered-overlay: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.65)
+      );
+      height: 100%;
+    }
+
+    .card-about,
+    .card-creator {
+      opacity: 0;
+    }
+
+    .card-info {
+      background-color: transparent;
+    }
+
+    .card-title {
+      color: #ebecf0;
+       margin-bottom: -40px;
+      transform: translate(0,40px);
+    }
+  }
+}
+
+
+
+.ourBlogs{
+  border: 2px solid black;
+  background-color: black;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  font-size: 54px;
+}
+.card.card-1 {
+  background-image: url(https://www.pexels.com/photo/woman-standing-on-cliff-16953646/); /* Replace 'path_to_your_image.jpg' with the path to your image */
+  background-size: cover; /* Ensure the background image covers the entire card */
+  background-position: center; /* Center the background image */
+}
+
+
     </style>
   </head>
 
@@ -274,6 +617,8 @@
     <div id="main">
       <div id="page1">
         <h2>Welcome to SMILE CLUB</h2>
+        <h2>ANCIENT SCIENCE AND TECHNOLOGY FOR MODERN INDIA LIFE ENLIGHTENMENT
+          </h2>
         <p>Lets make the whole world noble</p>
         <div id="arrow">
           <i class="ri-arrow-down-line"></i>
@@ -305,14 +650,12 @@
           <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-2-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
                     alt="" /> -->
         </div>
-        <div id="cards-container">
+        <!-- <div id="cards-container">
           <div class="card" id="card1">
             <div class="overlay">
               <h4>Mission</h4>
               <p>
-                Our mission is to inspire spiritual growth and enlightenment,
-                fostering a deep sense of connection and understanding within
-                our community.
+                Our mission is to inspire spiritual growth.
               </p>
             </div>
           </div>
@@ -321,10 +664,7 @@
             <div class="overlay">
               <h4>Culture</h4>
               <p>
-                The culture of our club is rooted in compassion, empathy, and
-                inclusivity, where diverse perspectives are welcomed and
-                celebrated. We promote open-mindedness, mutual respect, and a
-                commitment to personal and collective growth.
+                The culture of our club is rooted in compassion.
               </p>
             </div>
           </div>
@@ -332,9 +672,7 @@
             <div class="overlay">
               <h4>Nation</h4>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
-                quam molestias magni cupiditate architecto et enim quas facere
-                ipsum tempora?
+                Lorem ipsum dolor sit.
               </p>
             </div>
           </div>
@@ -342,11 +680,7 @@
             <div class="overlay">
               <h4>Civilization</h4>
               <p>
-                In our club, we aim to transcend boundaries of nationality,
-                ethnicity, and background, embracing the shared humanity that
-                unites us all. We foster a sense of global citizenship, honoring
-                the richness of diverse cultures while emphasizing common values
-                of peace, cooperation, and understanding.
+                In our club, we aim to transcend boundaries of nationality.
               </p>
             </div>
           </div>
@@ -354,36 +688,120 @@
             <div class="overlay">
               <h4>Character Building</h4>
               <p>
-                Character building is at the core of our club's ethos, where we
-                emphasize the development of virtues such as integrity,
-                compassion, resilience, and inner strength. Through various
-                practices and discussions, we empower individuals to cultivate
-                their best selves, embodying qualities that contribute
-                positively to both personal growth and the betterment of
-                society.
+                Character building is at the core of our club's ethos.
               </p>
             </div>
           </div>
+        </div> -->
+        <!-- ////////////// -->
+       
+        <section class="cards-wrapper">
+          <div class="card-grid-space">
+            
+            <a class="card" style="--bg-img: url(''); background-color: #DB6C07;">
+              <div>
+                <h1>Culture</h1>
+                <p>The syntax of a language is how it works. How to actually write it. Learn HTML syntax…</p>
+                
+              </div>
+            </a>
+          </div>
+          <div class="card-grid-space">
+           
+            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+              <div>
+                <h1>Misson</h1>
+                <p>Learn about some of the most common HTML tags…</p>
+               
+              </div>
+            </a>
+          </div>
+          <div class="card-grid-space">
+            
+            <a class="card" href="#" style="--bg-img: url();  background-color: #DB6C07;">
+              <div>
+                <h1>Nation</h1>
+                <p>Learn how to use links and images along with file paths…</p>
+                <div class="date">14 Oct 2017</div>
+              </div>
+            </a>
+          </div>
+          <div class="card-grid-space">
+            
+            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+              <div>
+                <h1>Nation</h1>
+                <p>Learn how to use links and images along with file paths…</p>
+                
+              </div>
+            </a>
+          </div>
+          <div class="card-grid-space">
+            
+            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+              <div>
+                <h1>Civilization</h1>
+                <p>Learn how to use links and images along with file paths…</p>
+               
+              </div>
+            </a>
+          </div>
+          <div class="card-grid-space">
+            
+            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+              <div>
+                <h1>Character-Building</h1>
+                <p>Learn how to use links and images along with file paths…</p>
+                
+              </div>
+            </a>
+          </div>
+          <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
+        </section>
+       
+        <!-- //////////////// -->
+        
+  
+        <div id="page4">
+          <h1 class="page4_header">Our Latest Blogs</h1>
+          
+          <div class="elem">
+            <h2>Amog Lila Prabhu</h2>
+            <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg" alt="" />
+          </div>
+          <div class="elem">
+            <h2>More Than 20 events this semester</h2>
+            <img
+              src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+            />
+          </div>
+          <div class="elem">
+            <h2>Mahashivratri Celeberations</h2>
+            <img
+              src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+            />
+          </div>
+          <div class="elem">
+            <h2>More than 25 recruitments done this week</h2>
+            <img
+              src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+            />
+          </div>
+          <div class="elem">
+            <h2>Many more</h2>
+            <img
+              src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+            />
+          </div>
         </div>
-        <div id="green-div">
-          <img
-            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
-            alt=""
-          />
-          <h4>
-            TO GET THE LATEST NEWS,EVENTS AND UPDATES ABOUT THE CLUB, CLICK HERE
-            !
-          </h4>
-          <button class="black-button">Click Here</button>
-          <img
-            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
-            alt=""
-          />
-        </div>
-      </div>
+      <!-- </div> -->
       <div id="page3">
         <p>
-          {{quote.quote}}
+          {{ quote.quote }}
         </p>
         <img
           id="colon1"
@@ -431,7 +849,44 @@
           />
         </div>
       </div>
+      <div id="page4">
+        <h1 class="page4_header">Our Recent events</h1>
+        <div class="elem">
+          <h2>Amog Lila Prabhu</h2>
+          <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg" alt="" />
+        </div>
+        <div class="elem">
+          <h2>More Than 20 events this semester</h2>
+          <img
+            src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+        <div class="elem">
+          <h2>Mahashivratri Celeberations</h2>
+          <img
+            src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+        <div class="elem">
+          <h2>More than 25 recruitments done this week</h2>
+          <img
+            src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+        <div class="elem">
+          <h2>Many more</h2>
+          <img
+            src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
+
+    
     <footer>
       <div class="waves">
         <div class="wave" id="wave1"></div>

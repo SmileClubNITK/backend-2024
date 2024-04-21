@@ -55,14 +55,12 @@ def event_detail(request, event_id):
     return render(request, 'event.html', {'event': event})
 
 
-def weekly_quote(request):
-    # Calculate the current week number
-    current_week_number = datetime.date.today().isocalendar()[1]
+# def weekly_quote(request):
+#     # Calculate the current week number
 
-    # Retrieve the quote for the current week
-    quote = Quote.objects.all()[current_week_number % Quote.objects.count()]
+#     # Retrieve the quote for the current week
 
-    return render(request, 'index.html', {'quote': quote})
+#     return render(request, 'index.html', {})
 
 
 # {{ quote.quote }}
@@ -78,9 +76,12 @@ def gallery(request):
 
     return render(request, 'gallery.html', {'image_groups': image_groups})
 
-def latest_blogs_and_events(request):
-    # Retrieve the two latest blog posts and events
-    latest_blogs = b_post.objects.filter(status='published').order_by('-id')[:2]
-    latest_events = Event.objects.order_by('-event_date')[:2]
+def home(request):
+    current_week_number = datetime.date.today().isocalendar()[1]
+    quote = Quote.objects.all()[current_week_number % Quote.objects.count()]
 
-    return render(request, 'l.html', {'latest_blogs': latest_blogs, 'latest_events': latest_events})
+    # Retrieve the three latest blog posts and events
+    latest_blogs = b_post.objects.filter(status='published').order_by('-id')[:3]
+    latest_events = Event.objects.order_by('-event_date')[:3]
+
+    return render(request, 'index.html', {'latest_blogs': latest_blogs, 'latest_events': latest_events, 'quote': quote})

@@ -9,12 +9,22 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+class Author(models.Model):
+    """Model representing an author."""
+    name = models.CharField(max_length=255, blank=True)
+    bio = models.TextField(max_length=1000, blank=True)
+    # Other fields as needed
+    image = models.ImageField(upload_to='author_images/', blank=True)
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
 class b_post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     title = models.CharField(max_length=100)
-    cover_image = models.ImageField(upload_to='post_images/', blank=True)
+    cover_image = models.ImageField(upload_to='b_cover_images/', blank=True)
     abstract = models.CharField(max_length=200, null=True)
-    author = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, related_name='posts')
+    authors = models.ManyToManyField(Author, related_name='posts', blank=False)    
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
@@ -31,16 +41,6 @@ class b_post(models.Model):
         return reverse('post-detail', args=[str(self.id)])
 
 
-class Author(models.Model):
-    """Model representing an author."""
-    name = models.CharField(max_length=255, blank=True)
-    bio = models.TextField(max_length=1000, blank=True)
-    # Other fields as needed
-    image = models.ImageField(upload_to='author_images/', blank=True)
-
-    def __str__(self):
-        """String for representing the Model object."""
-        return self.name
 
 
 # class Comment(models.Model):
@@ -81,7 +81,7 @@ class Team(models.Model):
         
     )
     post = models.CharField(max_length=50, blank=True)
-    image = models.ImageField(upload_to='post_images/', blank=True)
+    image = models.ImageField(upload_to='team_images/', blank=True)
     category = models.CharField(max_length=50, choices=CATEGORY)
     def __str__(self):
         """String for representing the Model object."""
@@ -92,7 +92,7 @@ class Event(models.Model):
     name = models.CharField(max_length=50, blank=True)
     about = models.TextField(max_length=1000, blank=True)
     event_date = models.DateTimeField()
-    image = models.ImageField(upload_to='post_images/', blank=True)
+    image = models.ImageField(upload_to='event_images/', blank=True)
     lunar_date = models.CharField(max_length=50, blank=True, null=True)
 
 

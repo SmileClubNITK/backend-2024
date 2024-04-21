@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+<h1>Weekly Quote</h1>
+<p>{{ quote.quote }}</p>
+
+<h2>Latest Blogs</h2>
+<ul>
+    {% for blog in latest_blogs %}
+        <li>{{ blog.title }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Latest Events</h2>
+<ul>
+    {% for event in latest_events %}
+        <li>{{ event.name }}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

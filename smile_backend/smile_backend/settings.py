@@ -73,6 +73,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            #  'libraries': {
+            #     'ytube_filters': 'blogs.templatetags.ytube_filters',  # Add this line
+            # },
         },
     },
 ]
