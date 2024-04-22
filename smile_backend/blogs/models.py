@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 import uuid  # Required for unique post instances
 from django.contrib.auth.models import User  # Import the User model
-
+from cloudinary.models import CloudinaryField
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
@@ -14,7 +14,8 @@ class Author(models.Model):
     name = models.CharField(max_length=255, blank=True)
     bio = models.TextField(max_length=1000, blank=True)
     # Other fields as needed
-    image = models.ImageField(upload_to='author_images/', blank=True)
+    image = CloudinaryField('image')
+    # image = models.ImageField(upload_to='author_images/', blank=True)
 
     def __str__(self):
         """String for representing the Model object."""
@@ -22,15 +23,15 @@ class Author(models.Model):
 class b_post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     title = models.CharField(max_length=100)
-    cover_image = models.ImageField(upload_to='b_cover_images/', blank=True)
+    cover_image = CloudinaryField('image')
     abstract = models.CharField(max_length=200, null=True)
-    authors = models.ManyToManyField(Author, related_name='posts', blank=False)    
+    authors = models.ManyToManyField(Author, related_name='posts',blank = True)    
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
     )
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-    tags = models.ManyToManyField(Tag, blank=True)  # Many-to-many relation with Tag model
+    tags = models.ManyToManyField(Tag, blank = True)  # Many-to-many relation with Tag model
         
     def __str__(self):
         """String for representing the Model object."""
@@ -61,7 +62,7 @@ class ContentBlock(models.Model):
     )
     order_type = models.CharField(max_length=10, choices=ORDER_CHOICES)
     text = models.TextField(blank=True)
-    image = models.ImageField(upload_to='post_images/', blank=True)
+    image = CloudinaryField('image')
     caption = models.CharField(max_length=255, blank=True)
     order = models.PositiveIntegerField(default=0, help_text="Enter the order in which the block should appear")
 
@@ -81,7 +82,7 @@ class Team(models.Model):
         
     )
     post = models.CharField(max_length=50, blank=True)
-    image = models.ImageField(upload_to='team_images/', blank=True)
+    image = CloudinaryField('image')
     category = models.CharField(max_length=50, choices=CATEGORY)
     def __str__(self):
         """String for representing the Model object."""
@@ -89,13 +90,16 @@ class Team(models.Model):
 
 class Event(models.Model):
     """Model representing an event."""
-    name = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=70, blank=True)
     about = models.TextField(max_length=1000, blank=True)
     event_date = models.DateTimeField()
-    image = models.ImageField(upload_to='event_images/', blank=True)
-    lunar_date = models.CharField(max_length=50, blank=True, null=True)
-
-
+    event_time = models.TimeField(blank=True, null=True)
+    image = CloudinaryField('image')
+    lunar_date = models.CharField(max_length=70, blank=True, null=True)
+    tagline = models.CharField(max_length=150, blank=True, null=True)
+    venue = models.CharField(max_length=70, blank=True, null=True)
+    contact_email = models.EmailField(max_length=150, blank=True, null=True)
+    contact_phone = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         """String for representing the Model object."""
@@ -118,7 +122,7 @@ class ImgGrp (models.Model):
 
 class Image(models.Model):
     heading = models.ForeignKey(ImgGrp, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='gallery_images/')
+    image = CloudinaryField('image')
     alt = models.CharField(max_length=60, blank=True, null=True)
 
     def __str__(self):

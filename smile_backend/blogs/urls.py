@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    # path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('event', TemplateView.as_view(template_name='t_event.html'), name='event'),
     path('post/<uuid:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('about/', team_list_view, name='team-list'),
     path('post/<uuid:post_id>/', post_detail, name='post-detail'),

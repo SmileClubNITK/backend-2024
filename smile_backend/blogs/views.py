@@ -31,6 +31,7 @@ def blog_list(request):
     posts = b_post.objects.filter(status='published')  # Get all published blog posts
     context = {'posts': posts}
     return render(request, 'blog_list.html', context)
+    # return render(request, 'blog_list.html', context)
 
 def post_detail(request, post_id):
     # Retrieve the post object or return 404 if not found

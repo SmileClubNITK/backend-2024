@@ -143,6 +143,8 @@
         width: 100%;
         text-align: center;
         margin-top: 250px;
+        margin-bottom: 0px;
+        font-size: 200px;
       }
      header{
         width:100%;
@@ -300,8 +302,10 @@ a {
 .card {
   font-family: 'Heebo', sans-serif;
   --bg-filter-opacity: 0.5;
-  background-image: linear-gradient(rgba(0, 0, 0, var(--bg-filter-opacity)), rgba(0, 0, 0, var(--bg-filter-opacity))), var(--bg-img);
+  /* background-image: url('https://source.unsplash.com/600x400/?computer'); */
   height: 20em;
+  background-color: rgb(249, 124, 15);
+  object-fit: cover;
   width: 15em;
   font-size: 1.5em;
   color: white;
@@ -475,7 +479,7 @@ body {
   width: 325px;
   min-width: 275px;
   margin: 1.25rem 0.75rem;
-  background: white;
+  background: rgb(22, 22, 22);
   transition: all 300ms ease-in-out;
 
   .card-img {
@@ -604,6 +608,133 @@ body {
   background-position: center; /* Center the background image */
 }
 
+/* //////////////// */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1200px;
+  margin-block: 2rem;
+  gap: 2rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card_new {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #121212;
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+  margin-right: 35px;
+  margin-left: 35px;
+}
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  gap: .5rem;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: .25em .75em;
+  border-radius: 1em;
+  font-size: .75rem;
+}
+
+.tag + .tag {
+  margin-left: .5em;
+}
+
+.tag-blue {
+  background: #56CCF2;
+  background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+  color: #fafafa;
+}
+
+.tag-brown {
+  background: #D1913C;
+  background: linear-gradient(to bottom, #FFD194, #D1913C);
+  color: #fafafa;
+}
+
+.tag-red {
+  background: #cb2d3e;
+  background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: .5rem;
+}
+
+.user__image {
+  border-radius: 50%;
+}
+
+.user__info > small {
+  color: #666;
+}
+.card_new_header{
+ font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 70px;
+}
+@media screen and (max-width: 700px) {
+  #page4 {
+    display: flex; /* Display the page4 container as a flex container */
+    flex-direction: column; /* Stack elements vertically */
+    margin: 20px; /* Add some margin between each elem */
+    height: 300vh;
+  }
+  .elem {
+    display: block; /* Display each elem class in a column */
+   /* Add some margin between each elem */
+    margin-top: 50px; 
+    margin-bottom: 50px;
+    width:300px;
+    height: 500px;
+    
+  }
+  .page4_header{
+    margin-top: 700px;
+    font-size: 500px;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  .elem h2{
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
 
     </style>
   </head>
@@ -647,58 +778,12 @@ body {
               this profound journey of self-discovery and unity.
             </p>
           </div>
-          <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-2-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
-                    alt="" /> -->
         </div>
-        <!-- <div id="cards-container">
-          <div class="card" id="card1">
-            <div class="overlay">
-              <h4>Mission</h4>
-              <p>
-                Our mission is to inspire spiritual growth.
-              </p>
-            </div>
-          </div>
-
-          <div class="card" id="card2">
-            <div class="overlay">
-              <h4>Culture</h4>
-              <p>
-                The culture of our club is rooted in compassion.
-              </p>
-            </div>
-          </div>
-          <div class="card" id="card3">
-            <div class="overlay">
-              <h4>Nation</h4>
-              <p>
-                Lorem ipsum dolor sit.
-              </p>
-            </div>
-          </div>
-          <div class="card" id="card4">
-            <div class="overlay">
-              <h4>Civilization</h4>
-              <p>
-                In our club, we aim to transcend boundaries of nationality.
-              </p>
-            </div>
-          </div>
-          <div class="card" id="card5">
-            <div class="overlay">
-              <h4>Character Building</h4>
-              <p>
-                Character building is at the core of our club's ethos.
-              </p>
-            </div>
-          </div>
-        </div> -->
-        <!-- ////////////// -->
        
         <section class="cards-wrapper">
           <div class="card-grid-space">
             
-            <a class="card" style="--bg-img: url(''); background-color: #DB6C07;">
+            <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');">
               <div>
                 <h1>Culture</h1>
                 <p>The syntax of a language is how it works. How to actually write it. Learn HTML syntax…</p>
@@ -708,7 +793,7 @@ body {
           </div>
           <div class="card-grid-space">
            
-            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+            <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');  ">
               <div>
                 <h1>Misson</h1>
                 <p>Learn about some of the most common HTML tags…</p>
@@ -718,7 +803,7 @@ body {
           </div>
           <div class="card-grid-space">
             
-            <a class="card" href="#" style="--bg-img: url();  background-color: #DB6C07;">
+            <a class="card" href="#" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');  ">
               <div>
                 <h1>Nation</h1>
                 <p>Learn how to use links and images along with file paths…</p>
@@ -728,7 +813,7 @@ body {
           </div>
           <div class="card-grid-space">
             
-            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+            <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');">
               <div>
                 <h1>Nation</h1>
                 <p>Learn how to use links and images along with file paths…</p>
@@ -738,7 +823,7 @@ body {
           </div>
           <div class="card-grid-space">
             
-            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+            <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');">
               <div>
                 <h1>Civilization</h1>
                 <p>Learn how to use links and images along with file paths…</p>
@@ -748,7 +833,7 @@ body {
           </div>
           <div class="card-grid-space">
             
-            <a class="card" style="--bg-img: url('');  background-color: #DB6C07;">
+            <a class="card" style="--bg-img: url(''); ">
               <div>
                 <h1>Character-Building</h1>
                 <p>Learn how to use links and images along with file paths…</p>
@@ -756,49 +841,74 @@ body {
               </div>
             </a>
           </div>
-          <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
-        </section>
+          </section>
        
         <!-- //////////////// -->
-        
-  
-        <div id="page4">
-          <h1 class="page4_header">Our Latest Blogs</h1>
-          
-          <div class="elem">
-            <h2>Amog Lila Prabhu</h2>
-            <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg" alt="" />
+       <div class="card_new_header">
+        <p>Our Latest Blogs</p>
+       </div>
+        <div class="container">
+          <div class="card_new">
+            <div class="card__header">
+              <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+              <span class="tag tag-blue">Technology</span>
+              <h4>What's new in 2022 Tech</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+            </div>
+            <div class="card__footer">
+              <div class="user">
+                <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image">
+                <div class="user__info">
+                  <h5>Jane Doe</h5>
+                  <small>2h ago</small>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="elem">
-            <h2>More Than 20 events this semester</h2>
-            <img
-              src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt=""
-            />
+          <div class="card_new">
+            <div class="card__header">
+              <img src="https://source.unsplash.com/600x400/?food" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+              <span class="tag tag-brown">Food</span>
+              <h4>Delicious Food</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+            </div>
+            <div class="card__footer">
+              <div class="user">
+                <img src="https://i.pravatar.cc/40?img=2" alt="user__image" class="user__image">
+                <div class="user__info">
+                  <h5>Jony Doe</h5>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="elem">
-            <h2>Mahashivratri Celeberations</h2>
-            <img
-              src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt=""
-            />
-          </div>
-          <div class="elem">
-            <h2>More than 25 recruitments done this week</h2>
-            <img
-              src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt=""
-            />
-          </div>
-          <div class="elem">
-            <h2>Many more</h2>
-            <img
-              src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt=""
-            />
+          <div class="card_new">
+            <div class="card__header">
+              <img src="https://source.unsplash.com/600x400/?car,automobile" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+              <span class="tag tag-red">Automobile</span>
+              <h4>Race to your heart content</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+            </div>
+            <div class="card__footer">
+              <div class="user">
+                <img src="https://i.pravatar.cc/40?img=3" alt="user__image" class="user__image">
+                <div class="user__info">
+                  <h5>John Doe</h5>
+                  <small>2d ago</small>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      <!-- </div> -->
+        
+  
+        
       <div id="page3">
         <p>
           {{ quote.quote }}
@@ -813,7 +923,7 @@ body {
           src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
           alt=""
         />
-      </div>
+      </div> 
       <div id="page4">
         <h1 class="page4_header">OUR ACHIEVEMENTS</h1>
         <div class="elem">
@@ -834,27 +944,16 @@ body {
             alt=""
           />
         </div>
-        <div class="elem">
-          <h2>More than 25 recruitments done this week</h2>
-          <img
-            src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
-        </div>
-        <div class="elem">
-          <h2>Many more</h2>
-          <img
-            src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
-        </div>
+       
       </div>
       <div id="page4">
         <h1 class="page4_header">Our Recent events</h1>
+        
         <div class="elem">
           <h2>Amog Lila Prabhu</h2>
           <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg" alt="" />
         </div>
+
         <div class="elem">
           <h2>More Than 20 events this semester</h2>
           <img
@@ -869,23 +968,11 @@ body {
             alt=""
           />
         </div>
-        <div class="elem">
-          <h2>More than 25 recruitments done this week</h2>
-          <img
-            src="https://images.pexels.com/photos/6103203/pexels-photo-6103203.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
-        </div>
-        <div class="elem">
-          <h2>Many more</h2>
-          <img
-            src="https://images.pexels.com/photos/10703187/pexels-photo-10703187.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
-        </div>
+        
       </div>
     </div>
 
+    
     
     <footer>
       <div class="waves">

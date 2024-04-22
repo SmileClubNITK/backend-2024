@@ -16,6 +16,10 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# settings.py
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api	
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -143,5 +147,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Media files (user-uploaded files)
+cloudinary.config( 
+  	cloud_name = "djkdtrmij",
+  	api_key = "847642256987832",
+  	api_secret = "IPRYpaUl51DeTE7G0mAx7f5KNto"
+)
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    

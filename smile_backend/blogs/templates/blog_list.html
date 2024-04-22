@@ -58,6 +58,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        
       }
 
       .tag {
@@ -103,10 +104,18 @@
       .user {
         display: flex;
         gap: 0.5rem;
+        align-items: center;
       }
 
       .user__image {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
+      }
+
+      .user__info {
+        display: flex;
+        flex-direction: column;
       }
 
       .user__info > small {
@@ -414,14 +423,17 @@
             <h4>{{ blog.title }}</h4>
             <p>{{blog.abstract}}</p>
           </div>
-          <div class="card__footer">
-            <div class="user">
-              <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image" />
-              <div class="user__info">
-                <h5>{{ blog.author }}</h5>
+          {% for author in blog.authors.all %}
+            <div class="card__footer">
+              <div class="user">
+                <img src="{{ author.image.url }}" alt="user__image" class="user__image" />
+                <div class="user__info">
+                  <h5>{{ author.name }}</h5>{% if not forloop.last %}, {% endif %}
+                </div>
               </div>
             </div>
-          </div>
+          {% endfor %}
+               
         </div>
       </a>
       {% endfor %}

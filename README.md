@@ -34,9 +34,8 @@ add content block - select b_post,  select  image or text , if image upload imag
 
 now we can view the post in http://127.0.0.1:8000/blogs/post/uuid/          note: (uuid is copied from b_post)
 
-sorry : just testing purposes so routes r not well set
 
 
-py -m pip freeze > requirements.txt
+python3 -m pip freeze > requirements.txt
 
 https://www.prokerala.com/astrology/panchang/2024-april-09.html?loc=1263780

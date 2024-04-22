@@ -1,287 +1,1224 @@
 <!DOCTYPE html>
 <html lang="en">
-{%load static%}
+    {% load static %}
 
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smile Club</title>
-    <link rel="shortcut icon"
-        href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
-        type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link
+      rel="shortcut icon"
+      href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        *{
+            box-sizing: border-box;
+            margin:0;
+            padding: 0;
+        }
 
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-</head>
+        body {
+         
+        --color1: #fff;
+        --color2: #181818;
+      }
+      /* footer */
+      footer {
+        position: relative;
+        width: 100%;
+        background: black;
+        min-height: 200px;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 0px;
+        margin-top: 100px;
+      }
+      footer .social_icon,
+      footer .menu {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+        flex-wrap: wrap;
+      }
 
-</head>
+      footer .social_icon li,
+      footer .menu li {
+        list-style: none;
+      }
+      footer .social_icon li a {
+        font-size: 2em;
+        color: #fff;
+        margin: 0 10px;
+        display: inline-block;
+        transition: 0.5s;
+      }
+      footer .social_icon li a:hover {
+        transform: translateY(-10);
+      }
+      footer .menu li a {
+        font-size: 1.2em;
+        color: #fff;
+        margin: 0 10px;
+        display: inline-block;
+        text-decoration: none;
+        opacity: 0.75;
+      }
+      footer .menu li a:hover {
+        opacity: 1;
+      }
+      footer p {
+        color: #fff;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+      footer .wave {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url(montserrat/wave.png); /* Use the wave image as background */
+        background-size: 1000px 100px;
+      }
+      footer .wave#wave1 {
+        z-index: 1000;
+        opacity: 1;
+        bottom: 0;
+        animation: animateWave 4s linear infinite;
+      }
+      footer .wave#wave2 {
+        z-index: 999;
+        opacity: 0.5;
+        bottom: 10px;
+        animation: animateWave_02 4s linear infinite;
+      }
+      footer .wave#wave3 {
+        z-index: 1000;
+        opacity: 0.2;
+        bottom: 15px;
+        animation: animateWave 3s linear infinite;
+      }
+      footer .wave#wave4 {
+        z-index: 999;
+        opacity: 0.7;
+        bottom: 20px;
+        animation: animateWave_02 3s linear infinite;
+      }
+      @keyframes animateWave {
+        0% {
+          background-position-x: 1000px;
+        }
+        100% {
+          background-position-x: 0px;
+        }
+      }
+      @keyframes animateWave_02 {
+        0% {
+          background-position-x: 0px;
+        }
+        100% {
+          background-position-x: 1000px;
+        }
+      }
 
-<body>
-    <div id="nav">
-        <img class="logo" alt="Owner avatar" src="https://avatars.githubusercontent.com/u/146611856?s=48&amp;v=4"
-            width="40" height="15" />
+      .page4_header {
+        width: 100%;
+        text-align: center;
+        margin-top: 250px;
+      }
+      /* header */
+      header{
+        width:100%;
+        height:100px;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 99;
+        box-shadow: 0 0 10px #000;
+        background: rgba(0,0,0,0.5);
 
-        <h3>Home</h3>
-        <h3>About</h3>
-        <h3>All Articles</h3>
-        <h3>Contact</h3>
-        <h3>Forum</h3>
-        <h3>Categories</h3>
-        <!-- <li class="dropdown">
-            <a href="#"><h3>Categories</h3></a>
-            <div class="dropdown-content">
-              <div class="column">
-                <a href="#">Category 1</a>
-                <a href="#">Category 2</a>
-                <a href="#">Category 3</a>
-              </div>
-              <div class="column">
-                <a href="#">Category 4</a>
-                <a href="#">Category 5</a>
-                <a href="#">Category 6</a>
-              </div>
-            </div>
-          </li> -->
-        <div class="nav-right">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-                    Search
-                </button>
-            </form>
-            <div class="mx-2">
-                <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">
-                    Login
-                </button>
-                <button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">
-                    Sign Up
-                </button>
-            </div>
+     }
+     #chk1{
+        display:none;
+     }
+     i{
+        color:#fff;
+        cursor:pointer;
+     }
+     header .logo{
+        flex:1;
+        color:#fff;
+        margin-left:50px;
+        text-transform:uppercase;
+        font-size: 15px;
+     }
+     header .search-box{
+        flex:1;
+        position: relative;
+        
+     }
+     .search-box input{
+        width:100%;
+        height:40px;
+        border:none;
+        outline: none;
+        background: #f2f2f2;
+        border-radius: 30px;
+        color:grey;
+        font-size: 16px;
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 40px;
+       
+     }
+     .search-box button{
+        cursor:pointer;
+        width:40px;
+        height: 40px;
+        border-radius: 30px;
+        border: none;
+        position: absolute;
+        top:0;
+        right:0;
+        transform: scale(0.9);
+        background: rgb(14, 14, 14);
+     }
+     header ul{
+        flex:2;
+        display: flex;
+        justify-content: space-between;
+     }
+     header ul li{
+        list-style: none;
+     }
+     header ul li a{
+        text-decoration: none;
+        color:#fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding:10px 15px;
+     }
+     header ul li a:hover{
+        border-bottom: 2px solid cadetblue;
+     }
+     header .menu{
+        font-size:2.5rem;
+        display: none;
+     }
+     @media(max-width:1000px){
+        .search-box button{
+            position: absolute;
+        }
+        header ul{
+            position: fixed;
+            top:100px;
+            right:-100%;
+            background: rgba(0,0,0,0.5);
+            height: calc(100vh - 100px);
+            width:50%;
+            flex-direction: column;
+            align-items: center;
+            transition: right 0.5s linear;
+        }
+        header .menu{
+            display: block;
+            width:100px;
+            text-align: center;
+        }
+        #chk1:checked ~ ul{
+            right:0;
+        }
+     }
+     @media(max-width:600px){
+        header .logo{
+            font-size: 10px;
+            margin-left: 8px;
+        }
+        header ul{
+            width:100%;
+        }
+     }
+     .logo img{
+        height:40px;
+        width:40px;
+        margin-top: 20px;
+        margin-left: 25px;
+     }
+     .heading {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 100px auto; /* Added auto for horizontal centering */
+    
+    
+    
+}
+/* about page */
+
+.heading h1 {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 25px;
+    position: relative;
+    text-decoration: underline;
+}
+
+.heading h1:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    display: block;
+    margin: 0 auto;
+    
+}
+
+.heading p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.about {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* .about-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+} */
+
+/* .about-image img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+   
+} */
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center the text horizontally */
+}
+
+.about-content h1 {
+     margin-bottom: 50px;
+    color: white;
+}
+.about-content h1:hover{
+  text-decoration: underline; /* Add underline on hover */
+    cursor: pointer;
+}
+
+.about-content h3 {
+  width: 100%; /* Set the width to 100% */
+    border-radius: 50px ;
+    background: linear-gradient(to left bottom, #fa0101, #f3f70a);
+    color: white; /* Set text color to white */
+    padding: 10px; /* Add padding for better spacing */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+@media screen and (max-width: 768px) {
+    .about-content h3 {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+.about-content .read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+.about-content .read-more:hover {
+    background-color: #3e8e41;
+}
+
+@media screen and (max-width: 768px) {
+    .heading h1 {
+        font-size: 36px;
+    }
+
+    .heading p {
+        font-size: 17px;
+        margin-bottom: 0;
+    }
+
+    .about-image,
+    .about-content {
+        flex: 0 0 100%; /* Set width to 100% for smaller screens */
+        max-width: 100%; /* Ensure content doesn't exceed full width */
+        margin-right: 0; /* Reset margin for smaller screens */
+    }
+
+    .about-content .read-more {
+        font-size: 16px; /* Decrease font size for smaller screens */
+    }
+}
+.heading img {
+    max-width: 100%; /* Set maximum width to ensure responsiveness */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 50vh; /* Optional: Set maximum height */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .heading img {
+        max-height: 50vh; /* Adjust height for smaller screens */
+    }
+}
+
+.header1 h1:hover {
+    text-decoration: underline; /* Add underline on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "montserrat";
+    color: #fff;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  
+    width: 100%;
+    
+    overflow-x: hidden;
+  
+  
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #fff;
+  
+    border-radius: 50px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  #cursor {
+    height: 20px;
+    width: 20px;
+    background-color: #95c11e;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+    transition: all linear 0.1s;
+  }
+  #cursor-blur {
+    height: 500px;
+    width: 500px;
+    background-color: rgba(150, 193, 30, 0.3);
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(80px);
+    z-index: 9;
+    transition: all linear 0.4s;
+  }
+  
+
+  video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: fixed;
+  }
+  
+
+  #page1 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+  }
+  #page1 h1 {
+    font-size: 7.5vw;
+    font-weight: 900;
+    position: relative;
+  }
+  #page1 h1::before {
+    content: "EAT. DRINK. PLAY.";
+    position: absolute;
+    color: #000;
+    top: -5px;
+    left: -5px;
+    -webkit-text-stroke: 1.5px #95c11e;
+    z-index: -1;
+  }
+  #page1 h2 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color:rgb(248, 125, 17)
+  }
+  #page1 p {
+    font-size: 1.2vw;
+    font-weight: 500;
+    width: 40%;
+  }
+  #page1 #arrow {
+    height: 80px;
+    width: 80px;
+    background-color: transparent;
+    border: 2px solid #f1eded;
+    position: absolute;
+    display: flex;
+    left: 0%;
+    bottom: 0%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all ease 0.5s;
+  }
+ 
+  #page1 #arrow i {
+    font-size: 50px;
+    font-weight: 100;
+  }
+  #page1 #arrow:hover {
+    scale: 0.4;
+    background-color: #121616;
+  }
+  #page2 {
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  #scroller {
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+  }
+  #scroller::-webkit-scrollbar {
+    display: none;
+  }
+  #scroller-in {
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  #scroller h4 {
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: gilroy;
+    margin-right: 20px;
+    transition: all linear 0.3s;
+    color: #faf7f7;
+    -webkit-text-stroke: 2px #ffffff;
+    opacity:0.5;
+  }
+  #scroller h4:hover {
+    color: #f2f4f0;
+    -webkit-text-stroke: 2px #1c1c1b;
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  #about-us {
+    height: 40vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    justify-content: space-around;
+  }
+  #about-us img {
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  #about-us-in {
+    width: 50%;
+    text-align: center;
+  }
+  #about-us-in h3 {
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 30px;
+  }
+  #about-us-in p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #cards-container {
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+    z-index: 10;
+  }
+  .card {
+    height: 80%;
+    width: 24%;
+    /* background-color: blue; */
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all ease 0.6s;
+  }
+  #card1 {
+    background-image: url(https://images.pexels.com/photos/2725253/pexels-photo-2725253.jpeg?auto=compress&cs=tinysrgb&w=600);
+    opacity:0.7;
+    box-sizing: border-box; 
+    overflow: hidden;
+   
+  }
+  #card2 {
+    background-image: url(https://images.pexels.com/photos/12153073/pexels-photo-12153073.jpeg?auto=compress&cs=tinysrgb&w=600);
+    opacity:0.7;
+  }
+  #card3 {
+    background-image: url(https://images.pexels.com/photos/3738222/pexels-photo-3738222.jpeg?auto=compress&cs=tinysrgb&w=600);
+    opacity:0.7;
+  }
+  #card4 {
+    background-image: url(https://images.pexels.com/photos/2072577/pexels-photo-2072577.jpeg?auto=compress&cs=tinysrgb&w=600);
+    opacity:0.7;
+  }
+  #card5 {
+    background-image: url(https://images.pexels.com/photos/3762977/pexels-photo-3762977.jpeg?auto=compress&cs=tinysrgb&w=600);
+    opacity:0.7;
+  }
+  .overlay {
+    height: 100%;
+    width: 100%;
+    background-color: #131312;
+    padding: 30px;
+    padding-top: 160px;
+    opacity: 0;
+    transition: all ease 0.6s;
+  }
+  .overlay h4 {
+    color: #f2ebeb;
+    font-size: 40px;
+    text-transform: uppercase;
+    /* white-space: nowrap; */
+    /* margin-bottom: 20px; */
+    font-weight: 800;
+  }
+  .overlay p {
+    color: #fbf4f4;
+    font-size: 18px;
+  }
+  .card:hover .overlay {
+    opacity: 1;
+    background-color: #ed5c24fc;
+  }
+
+ 
+
+  
+  #page3 {
+    height: 100vh;
+    width: 100%;
+    background-color: #ed5c24fc;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+  }
+  #page3 > p {
+    font-size: 35px;
+    font-weight: 700;
+    width: 60%;
+    line-height: 45px;
+    text-align: center;
+  }
+  
+  #page3 img {
+    position: absolute;
+    height: 60px;
+  }
+  #page3 #colon1 {
+    left: 15%;
+    top: 25%;
+  }
+  #page3 #colon2 {
+    bottom: 30%;
+    right: 15%;
+  }
+  #page4 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+    
+  }
+  .elem {
+    height: 50%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+  }
+  
+  .elem h2 {
+    height: 100%;
+    width: 100%;
+    background-color:linear-gradient(to left bottom, #fa0101, #f3f70a);
+    display: flex;
+    color: #eee5e1fc;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    font-size: 2vw;
+    position: absolute;
+    z-index: 10;
+    /* opacity:0.7 */
+  }
+  .elem img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.5s;
+    scale: 1.1;
+  }
+  .elem:hover h2 {
+    /* font-size:21px; */
+    font-weight:bold;
+    background-color: transparent;
+    opacity:1.5;
+  }
+  .elem:hover img {
+    scale: 1.5;
+  }
+  #page4 h1 {
+    font-size: 4.0vw;
+    position: absolute;
+    top: -30%;
+    font-weight: 900;
+    font-family: gilroy;
+    color: #f8efef;
+    /* -webkit-text-stroke: 2px #fff; */
+  }
+  
+ 
+
+
+
+.about-header{
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items:center;
+  margin: auto 0 50px;
+  position:relative;
+  
+}
+.header1{
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items:center;
+  margin: 100px auto;
+  
+}
+.card1{
+  width:200px;
+  border:2px solid black;
+}
+
+
+
+
+.about-us2 h2 {
+  margin-bottom: auto;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center; /* To vertically center the form and buttons */
+  margin-left: auto; /* Pushes the container to the right */
+}
+.card-img-top {
+  width: 100%;
+  height: 200px; /* Adjust the height as needed */
+  object-fit: cover; /* Ensure the image covers the entire space */
+  border-radius: 15px;
+}
+.card-another .card-body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.about-cards-container {
+  display: flex; /* Use flexbox to align flex items */
+  flex-wrap: wrap; /* Allow flex items to wrap to the next line if necessary */
+  justify-content: center; /* Distribute flex items evenly with space around them */
+  margin: auto; /* Add margin to the container for spacing */
+  width: 100%;
+  
+   
+}
+ .card-another {
+  
+  height: 300px; /* Set the desired height of each card */
+ margin:20px;
+  border-radius: 15px; /* Add rounded corners to the cards */
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+
+.card-another:hover {
+  transform: scale(1.1); /* Enlarge the card on hover */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.paragraph-container {
+  display: flex;
+  justify-content: flex-end;
+ 
+  width: 60%; /* Adjust the width as needed */
+  margin-left: auto; /* Push the container to the right */
+  
+}
+.paragraph {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-end; /* Align the container to the end (right side) */
+  padding: 0 20px; /* Add padding for spacing */
+  
+  margin-bottom: 3rem; /* Add padding for spacing */
+  
+}
+.paragraph-container2 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-end; /* Align the container to the end (right side) */
+  padding: 0 20px; /* Add padding for spacing */
+  margin-top:3rem;
+  margin-bottom: 3rem; /* Add padding for spacing */
+  
+}
+.img-about {
+  width: 35%; /* Set the width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  float: left;
+  position:relative;
+  height:auto
+}
+.img-about img {
+  width: 100%; /* Ensure the image fills the container width */
+  height: 620px; /* Maintain aspect ratio */
+  display: block; /* Ensure the image is block-level */
+}
+
+.about-aboutus {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center align the text */
+  margin-top: 50px;
+}
+
+.about-aboutus h1 {
+  font-weight: bold; /* Make the text bold */
+}
+
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <input type="checkbox" name="" id="chk1">
+      <div class="logo">
+          <img src="montserrat/sc.png" alt="Smile Club Logo"> <!-- Insert your logo image here -->
+          <p>Smile Club</p>
+      </div>
+      <div class="search-box">
+        <form id="search-form" action="">
+          <input type="text" name="search" id="srch" placeholder="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      </div>
+      <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+          
+          <li>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+             
+             
+          </li>
+      </ul>
+      <div class="menu">
+          <label for="chk1">
+              <i class="fa fa-bars"></i>
+          </label>
+      </div>
+  </header>
+ 
+
+  <video autoplay loop muted src="https://res.cloudinary.com/djkdtrmij/video/upload/v1713776599/help_pg9sc1.mp4"></video>
+  <div id="search-results"></div>
+  <div class="about-container">
+    
+    <div class="container">
+
+      <section class="about">
+        <div class="heading">
+          <h1>About us</h1>
+          <img src="montserrat/sc.png" alt="">
         </div>
+        <!-- <div class="image">
+          <img src="montserrat/sc.png" alt="">
+        </div> -->
+        <div class="about-content">
+         <h1>Smile club</h1>
+         <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Ab quibusdam amet facere dolor. Molestias unde impedit laboriosam? 
+          Dignissimos inventore molestias aliquid, quis eum ut iusto consectetur
+           pariatur, cumque, est quo in optio sed aspernatur! Et fugit numquam a,
+            illo illum laudantium quis harum odit aperiam, ad quidem perspiciatis
+             soluta fugiat animi nam quod, voluptatibus asperiores! Omnis, perferendis
+              tempora error quod minima expedita eum unde dolorum itaque, at hic 
+              cupiditate deleniti. Fuga blanditiis voluptate suscipit rem harum 
+              tempore obcaecati soluta nobis repellat totam adipisci cumque ipsa
+               magni, nihil esse accusamus dolorum! Nisi voluptatem saepe enim,
+                in et rerum? Cumque recusandae magni quaerat natus enim distinctio
+                 nisi porro animi illo. Accusamus numquam beatae labore harum amet
+                  nemo tenetur aut placeat esse, doloremque asperiores autem. Voluptas
+                   natus quas molestiae error debitis laudantium saepe voluptatem 
+                  dignissimos, quos ullam, consequatur cupiditate dolorum quae iste 
+                  asperiores? Ipsa quia consectetur officia expedita, cumque iure 
+                  nam nobis molestiae fuga beatae assumenda sunt inventore autem 
+                  voluptas? Aliquam blanditiis ipsa aspernatur nihil nesciunt suscipit. 
+                  Voluptas provident labore qui dolorum, voluptatem velit nobis cumque eum recusandae nihil et quis veniam eaque, in ut accusamus saepe voluptatum repellendus impedit veritatis, aspernatur perferendis! Aliquam porro illo exercitationem, voluptatem reiciendis laboriosam sequi molestiae quaerat ducimus, necessitatibus neque at harum, iusto aut itaque laborum architecto commodi dignissimos earum animi velit eaque amet veniam delectus. Provident suscipit nisi veritatis sapiente minima ut dolorem expedita laborum, soluta totam fugiat unde ratione sequi nemo, sunt nobis deleniti! Accusantium excepturi velit non debitis alias provident ipsa, facere dolores ullam saepe. Placeat optio natus adipisci veniam fuga quam deserunt numquam iste consequuntur, repudiandae officiis tempore aspernatur aut distinctio sint earum ipsum asperiores nobis quis ducimus? Rerum, iste expedita quidem delectus ipsam iusto? Ipsam quae dolorum dolore eligendi iste excepturi quo libero! Sequi illum possimus esse placeat ullam dignissimos unde. Corrupti possimus expedita sequi, alias nam sapiente maxime minima veritatis. Id ad nobis quidem quam ullam dolorem natus dolore labore nisi reiciendis ipsa, beatae unde fugit laborum, magni, officia vero molestiae accusamus perferendis repudiandae magnam totam placeat deserunt? Similique sint natus a quod eos dolores doloribus fugit corporis voluptatem vitae laborum culpa, maxime id error nemo dicta repudiandae beatae temporibus cumque quas voluptates. Assumenda ducimus nam magni quaerat doloribus temporibus, vel, molestias hic facere fugiat animi deserunt aliquam tenetur quidem ut impedit, earum doloremque optio sequi ullam sunt velit libero. Hic, tempore molestiae! Velit reiciendis eaque voluptatem quos sed sapiente excepturi facere. Cupiditate nobis cumque omnis beatae harum praesentium eveniet saepe perferendis fuga illo delectus possimus molestiae pariatur eligendi voluptate ipsa, earum laborum quos dicta dolorum cum soluta neque tempora quia. Molestias, esse! Quae consectetur officia atque inventore placeat ipsum accusantium totam animi eaque nemo! Blanditiis odio eaque expedita consequatur unde nesciunt voluptate distinctio placeat ut laborum voluptates dolores labore mollitia consectetur, rerum officiis debitis culpa doloribus id eligendi nemo iure nisi quaerat. Minus eaque odio repellat quo voluptates ipsa excepturi! Quod eos exercitationem modi illum vitae a architecto velit nobis fugiat corrupti harum molestiae nemo sunt, quasi consequatur nihil rem?</>
+          
+        </div>
+
+      </section>
     </div>
+  </div>
+        <div class="header1">
+          <h1>Coordinator and Faculty advisor</h1>
+        </div>
+        <div class="about-cards-container">
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man1.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Ayush</h5>
+              <h5 class="card-title">Coordinator</h5>
+            </div>
+          </div>
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man2.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Krishna</h5>
+              <h5 class="card-title">Faculty Advisor</h5>
+            </div>
+          </div>
+          
+        </div>
+        <div class="header1">
+          <h1>CORE Members</h1>
+        </div>
+        <div class="about-cards-container">
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man1.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Ayush</h5>
+              <h5 class="card-title">Web-head</h5>
+            </div>
+          </div>
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man2.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Krishna</h5>
+              <h5 class="card-title">Content-head</h5>
+            </div>
+          </div>
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man3.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Utkarsh</h5>
+              <h5 class="card-title">Utkarsh</h5>
+            </div>
+          </div>
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man4.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Anant</h5>
+              <h5 class="card-title">Anant</h5>
+            </div>
+          </div>
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man5.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Raghav</h5>
+              <h5 class="card-title">Raghav</h5>
+            </div>
+          </div>
+          <div class="card-another" style="width: 30rem">
+            <img src="montserrat/man6.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Madhav</h5>
+              <h5 class="card-title">Madhav</h5>
+            </div>
+          </div>
+          
+        </div>
+        <div class="header1">
+            <h1>COORDINATORS</h1>
+          </div>
+          <div class="about-cards-container">
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man1.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Ayush</h5>
+                <h5 class="card-title">Ayush</h5>
+              </div>
+            </div>
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man2.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Krishna</h5>
+                <h5 class="card-title">Krishna</h5>
+              </div>
+            </div>
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man3.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Utkarsh</h5>
+                <h5 class="card-title">Utkarsh</h5>
+              </div>
+            </div>
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man4.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Anant</h5>
+                <h5 class="card-title">Anant</h5>
+              </div>
+            </div>
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man5.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Raghav</h5>
+                <h5 class="card-title">Raghav</h5>
+              </div>
+            </div>
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man6.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Madhav</h5>
+                <h5 class="card-title">Madhav</h5>
+              </div>
+            </div>
+            
+          </div>
+          <div class="header1">
+            <h1>Website developers</h1>
+          </div>
+          <div class="about-cards-container">
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man1.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Ayush</h5>
+              </div>
+            </div>
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man2.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Krishna</h5>
+              </div>
+            </div>
+            <div class="card-another" style="width: 30rem">
+              <img src="montserrat/man3.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Utkarsh</h5>
+              </div>
+            </div>
+            
+          </div>
 
+          <footer>
+            <div class="waves">
+              <div class="wave" id="wave1"></div>
+              <div class="wave" id="wave2"></div>
+              <div class="wave" id="wave3"></div>
+              <div class="wave" id="wave4"></div>
+            </div>
+            <ul class="social_icon">
+              <li>
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+              </li>
+            </ul>
+            <ul class="menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About </a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <p>@2024 Smile Club | All rights reserved</p>
+          </footer>
+        
+</div>
 
-
-    <div class="about-aboutus">
-        <h1>ABOUT US</h1>
+        
+      
     </div>
-    <div class="about-container">
-        <div class="about-header">
-            <h1>SMILE CLUB</h1>
-        </div>
-        <div class="img-about">
-            <img src="montserrat/sc.png" alt="">
-        </div>
-        <div class="paragraph-container">
-            <div class="paragraph">
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-                    sapiente quidem ad!.
-                </h3>
-            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
+        integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var readMoreBtn = document.getElementById("read-more-btn");
+        var blogBox = readMoreBtn.closest(".blog-box");
+        var initialHeight = parseInt(blogBox.dataset.initialHeight);
 
-        </div>
-        <div class="paragraph-container">
-            <div class="paragraph">
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-                    sapiente quidem ad!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, culpa?
-                </h3>
-            </div>
+        readMoreBtn.addEventListener("click", function () {
+          blogBox.classList.toggle("expanded");
+          if (blogBox.classList.contains("expanded")) {
+            blogBox.style.height = "auto";
+          } else {
+            blogBox.style.height = initialHeight + "px";
+          }
+        });
+      });
+    </script>
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the search form and search results container
+        var searchForm = document.getElementById('search-form');
+        var searchResults = document.getElementById('search-results');
 
-        </div>
-        <div class="paragraph-container2">
-            <div class="paragraph">
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-                    sapiente quidem ad!.
-                </h3>
-            </div>
+        // Add event listener for form submission
+        searchForm.addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
 
-            <div class="paragraph">
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                    eos corrupti necessitatibus velit, facilis culpa eum et sapiente
-                    doloremque dolorem itaque ducimus, totam soluta pariatur eveniet hic
-                    ipsum quis suscipit voluptatem ipsam ullam! Laborum labore cumque
-                    cupiditate dolorum! Explicabo, in veniam. Odit atque, rerum quisquam
-                    a totam fuga quas tempora recusandae autem quaerat blanditiis quae
-                    culpa nihil temporibus praesentium vel iste incidunt quasi! Maiores,
-                    ducimus facere dignissimos ipsum quibusdam totam itaque quidem illum
-                    quo vero, sequi iste magni corrupti eligendi aut, quis asperiores?
-                    Cum, doloribus. Necessitatibus labore hic harum, quis numquam
-                    sapiente quidem ad!.
-                </h3>
-            </div>
-            <div class="paragraph">
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-                    modi corrupti cum maxime exercitationem accusamus atque eum laborum
-                    soluta ex incidunt odit aut, similique voluptates minima non hic
-                    expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
-                    amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
-                    atque labore rem facilis reprehenderit eligendi ullam odit
-                    molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
-                    tempora pariatur ad quibusdam quos voluptates? Illo quaerat
-                    obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
-                    quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
-                    beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
-                    ipsum ratione exercitationem et architecto! Perspiciatis?
-                </h3>
-                <div class="paragraph">
-                    <h3>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-                        modi corrupti cum maxime exercitationem accusamus atque eum laborum
-                        soluta ex incidunt odit aut, similique voluptates minima non hic
-                        expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
-                        amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
-                        atque labore rem facilis reprehenderit eligendi ullam odit
-                        molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
-                        tempora pariatur ad quibusdam quos voluptates? Illo quaerat
-                        obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
-                        quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
-                        beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
-                        ipsum ratione exercitationem et architecto! Perspiciatis?
-                    </h3>
-                    <div class="paragraph">
-                        <h3>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-                            modi corrupti cum maxime exercitationem accusamus atque eum laborum
-                            soluta ex incidunt odit aut, similique voluptates minima non hic
-                            expedita deleniti. Cupiditate totam cum quia mollitia deleniti quam
-                            amet nostrum, dignissimos officiis. Adipisci cumque et repudiandae
-                            atque labore rem facilis reprehenderit eligendi ullam odit
-                            molestias, ipsum veritatis, fuga quis dolore explicabo corrupti
-                            tempora pariatur ad quibusdam quos voluptates? Illo quaerat
-                            obcaecati cumque dolorum dolor odit reprehender it numquam! Vitae
-                            quod ducimus aut. Voluptatum, ratione culpa. Aspernatur quia illum
-                            beatae blanditiis, suscipit rem culpa distinctio, sapiente libero
-                            ipsum ratione exercitationem et architecto! Perspiciatis?
-                        </h3>
-                    </div>
-                    <div class="paragraph">
-                        <h3>
-                            Additional content goes here. Lorem ipsum dolor sit amet
-                            consectetur, adipisicing elit. Laudantium quas debitis magnam quod
-                            minima ipsa libero nihil rerum fugiat officia?. Lorem ipsum dolor
-                            sit amet consectetur, adipisicing elit. Reprehenderit consectetur
-                            amet perferendis consequatur ipsa placeat assumenda rerum id eius
-                            voluptate, fugit, molestiae optio incidunt cumque.
-                        </h3>
-                    </div>
-                </div>
-                <div class="header1">
-                    <h1>CORE Members</h1>
-                </div>
+            // Get the search query from the input field
+            var query = document.getElementById('srch').value.trim();
 
-                <div class="about-cards-container">
+            // Perform the search operation (replace this with your own search logic)
+            // Here, you can make an AJAX request to your backend API endpoint
+            var searchUrl = 'https://your-api-endpoint.com/search?q=' + encodeURIComponent(query);
 
-                  {% for member in team_members %}
-                  <div class="card-another" style="width: 30rem">
-                            {% if member.image %}
-                            <img src="{{ member.image.url }}" class="card-img-top" alt="Team Member Image">
-                            {% endif %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ member.name }}</h5>
-                                <h5 class="card-title">{{ member.post }}</h5>
-                            </div>
-                        </div>
-                        {% endfor %}
+            // Make an AJAX request to fetch search results
+            fetch(searchUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous search results
+                    searchResults.innerHTML = '';
 
-                       
-                    </div>
-                </div>
-
-                <div class="header1">
-                    <h1>Website developers</h1>
-                </div>
-                <div class="about-cards-container">
-                    <div class="card-another" style="width: 30rem">
-                        <img src="montserrat/man1.png" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title">Ayush</h5>
-                        </div>
-                    </div>
-                    <div class="card-another" style="width: 30rem">
-                        <img src="montserrat/man2.png" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title">Krishna</h5>
-                        </div>
-                    </div>
-                    <div class="card-another" style="width: 30rem">
-                        <img src="montserrat/man3.png" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title">Utkarsh</h5>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div id="footer">
-                    <div class="headFooter">
-                        <h1>CONTACT US</h1>
-                    </div>
-                    <div class="downFooter1">
-                        <h1>SMILE CLUB</h1>
-                    </div>
-                    <div class="downFooter2">
-                        <p>copyright@123</p>
-                        <p>Support Us</p>
-                    </div>
-                    <div class="footerLogo">
-                        <img class="invert" src="https://cdn.hugeicons.com/icons/instagram-stroke-rounded.svg"
-                            alt="instagram" width="24" height="24">
-                        <img class="invert" src="https://cdn.hugeicons.com/icons/facebook-01-stroke-rounded.svg"
-                            alt="facebook-01" width="24" height="24" />
-                        <img class="invert" src="https://cdn.hugeicons.com/icons/twitter-stroke-rounded.svg"
-                            alt="twitter" width="24" height="24" />
-                        <img class="invert" src="https://cdn.hugeicons.com/icons/linkedin-01-stroke-rounded.svg"
-                            alt="linkedin-01" width="24" height="24" />
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
-            integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
-            integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="{% static 'index.js' %}"></script>
-</body>
-</body>
-
+                    // Render search results
+                    data.forEach(result => {
+                        var resultItem = document.createElement('div');
+                        resultItem.textContent = result.title; // Assuming each result has a 'title' property
+                        searchResults.appendChild(resultItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        });
+    });
+</script>
+  </body>
 </html>
