@@ -100,7 +100,8 @@ class Event(models.Model):
     venue = models.CharField(max_length=70, blank=True, null=True)
     contact_email = models.EmailField(max_length=150, blank=True, null=True)
     contact_phone = models.CharField(max_length=20, blank=True, null=True)
-
+    form_link =  models.URLField(null=True)
+    
     def __str__(self):
         """String for representing the Model object."""
         return self.name

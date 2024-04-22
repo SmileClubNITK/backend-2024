@@ -17,7 +17,7 @@
             font-family: Arial, sans-serif;
         }
         .card {
-            background-color: rgb(255, 162, 0); /* Lighter shade of Saffron */
+            background-color: #eced11; /* Lighter shade of Saffron */
             color:white;
         }
         .btn-primary {
@@ -76,11 +76,11 @@
                 <p>
                     {{ event.about }}
                 </p>
-                <a class="btn btn-primary" href="#">Join in</a>
+                <a class="btn btn-primary" href="{{ event.form_link }}">Join in</a>
             </div>
         </div>
         <!-- Call to Action -->
-        <div class="card text-white  my-5 py-4 text-center">
+        <div class="card text-white  my-5  text-center">
             <div class="card-body">
                 <p class="text-white m-0">
                     {{ event.tagline }}
@@ -96,7 +96,7 @@
                         <p class="card-text">
                             <strong>Date:</strong> {{ event.event_date|date:"F d, Y" }}<br>
                             <strong>Time:</strong> {{ event.event_time|time:"h:i A" }}<br>
-                            <strong>Lunar Date:</strong> {{ event.lunar_date }}<br>
+                            <strong>Lunar Month:</strong> {{ event.lunar_date }}<br>
                         </p>
                     </div>
                     <div class="card-footer">
@@ -134,9 +134,9 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-black    ">
         <div class="container px-4 px-lg-5 footer">
-            <p class="m-0 text-center">Copyright &copy; Your Website 2023</p>
+            <p class="m-0 text-center">Copyright &copy; Smile Club </p>
         </div>
     </footer>
     <!-- Bootstrap core JS -->
