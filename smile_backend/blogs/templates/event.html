@@ -11,19 +11,22 @@
     <title>{{ event.name }}</title>
     <style>
         body {
-            background-color: #FFC56E; /* Brighter shade of Saffron */
-            color: #333333; /* Dark Grey */
+            background: linear-gradient(to left bottom, red, #f0f407);
+/* Brighter shade of Saffron */
+           
             font-family: Arial, sans-serif;
         }
         .card {
-            background-color: #FFD799; /* Lighter shade of Saffron */
+            background-color: rgb(255, 162, 0); /* Lighter shade of Saffron */
+            color:white;
         }
         .btn-primary {
-            background-color: #FF9933; /* Saffron */
-            border-color: #FF9933; /* Saffron */
+            background-color: black;
+             color:white;
+            border-color: white; /* Saffron */
         }
         .btn-primary:hover {
-            background-color: #FFAA33; /* Lighter Saffron on hover */
+            background-color: #ff3333; /* Lighter Saffron on hover */
             border-color: #FFAA33; /* Lighter Saffron on hover */
         }
         .navbar {
@@ -53,6 +56,9 @@
             background-color: #333333; /* Dark Grey */
             color: #FFFFFF; /* White */
         }
+        .card-body{
+            background-color: rgb(6, 6, 6);
+        }
     </style>
 </head>
 <body>
@@ -74,7 +80,7 @@
             </div>
         </div>
         <!-- Call to Action -->
-        <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card text-white  my-5 py-4 text-center">
             <div class="card-body">
                 <p class="text-white m-0">
                     {{ event.tagline }}

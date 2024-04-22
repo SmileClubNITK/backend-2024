@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView
-from .models import b_post, ContentBlock,Team ,Event,Quote,Yvideos,ImgGrp# Import ContentBlock model
+from .models import b_post, ContentBlock,Team ,Event,Quote,Yvideos,ImgGrp,Achievements# Import ContentBlock model
 import datetime
 class PostDetailView(DetailView):
     model = b_post
@@ -84,5 +84,6 @@ def home(request):
     # Retrieve the three latest blog posts and events
     latest_blogs = b_post.objects.filter(status='published').order_by('-id')[:3]
     latest_events = Event.objects.order_by('-event_date')[:3]
+    latest_achievements = Achievements.objects.all()
 
-    return render(request, 'index.html', {'latest_blogs': latest_blogs, 'latest_events': latest_events, 'quote': quote})
+    return render(request, 'index.html', {'latest_blogs': latest_blogs, 'latest_events': latest_events, 'quote': quote,'achievements':latest_achievements})

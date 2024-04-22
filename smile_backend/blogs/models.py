@@ -104,6 +104,15 @@ class Event(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.name
+class Achievements(models.Model):
+    """Model representing an event."""
+    name = models.CharField(max_length=70, blank=True)
+    about = models.TextField(max_length=1000, blank=True)
+    image = CloudinaryField('image')
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
 
 class Quote(models.Model):
         quote = models.TextField(max_length=10000, blank=False)

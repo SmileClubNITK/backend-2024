@@ -696,8 +696,8 @@ img {
   border-radius: 50%;
 }
 
-.user__info > small {
-  color: #666;
+.user__info  {
+  color: black !important;
 }
 .card_new_header{
  font-weight: bold;
@@ -847,64 +847,36 @@ img {
        <div class="card_new_header">
         <p>Our Latest Blogs</p>
        </div>
+
         <div class="container">
+          {% for blog in latest_blogs %}
           <div class="card_new">
             <div class="card__header">
-              <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
+              <img src="{{ blog.cover_image.url }}" alt="card__image" class="card__image" width="600">
             </div>
             <div class="card__body">
-              <span class="tag tag-blue">Technology</span>
-              <h4>What's new in 2022 Tech</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+              <div class="tag">
+              {% for tag in blog.tags.all %}
+            <span class="tag tag-blue">{{ tag }}</span> <!-- Changed blog.tags to tag -->
+            {% if not forloop.last %},{% endif %}
+            {% endfor %}
+          </div>
+             
+              <h4>{{ blog.title }}</h4>
+              <p>{{ blog.abstract }}</p>
             </div>
+            {% for author in blog.authors.all %}
             <div class="card__footer">
               <div class="user">
-                <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image">
-                <div class="user__info">
-                  <h5>Jane Doe</h5>
-                  <small>2h ago</small>
+                <img src="{{ author.image.url }}" alt="user__image" class="user__image" />
+                <div class="user__info" style = "color: black;">
+                  <h5>{{ author.name }}</h5>{% if not forloop.last %}, {% endif %}
                 </div>
               </div>
             </div>
+          {% endfor %}
           </div>
-          <div class="card_new">
-            <div class="card__header">
-              <img src="https://source.unsplash.com/600x400/?food" alt="card__image" class="card__image" width="600">
-            </div>
-            <div class="card__body">
-              <span class="tag tag-brown">Food</span>
-              <h4>Delicious Food</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
-            </div>
-            <div class="card__footer">
-              <div class="user">
-                <img src="https://i.pravatar.cc/40?img=2" alt="user__image" class="user__image">
-                <div class="user__info">
-                  <h5>Jony Doe</h5>
-                  <small>Yesterday</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card_new">
-            <div class="card__header">
-              <img src="https://source.unsplash.com/600x400/?car,automobile" alt="card__image" class="card__image" width="600">
-            </div>
-            <div class="card__body">
-              <span class="tag tag-red">Automobile</span>
-              <h4>Race to your heart content</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
-            </div>
-            <div class="card__footer">
-              <div class="user">
-                <img src="https://i.pravatar.cc/40?img=3" alt="user__image" class="user__image">
-                <div class="user__info">
-                  <h5>John Doe</h5>
-                  <small>2d ago</small>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         
   
@@ -926,53 +898,27 @@ img {
       </div> 
       <div id="page4">
         <h1 class="page4_header">OUR ACHIEVEMENTS</h1>
+        {% for achievement in achievements %}
+
         <div class="elem">
-          <h2>Amog Lila Prabhu</h2>
-          <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg" alt="" />
+          <h2>{{ achievement.name }}</h2>
+          <img src="{{ achievement.image.url }}" alt="" />
         </div>
-        <div class="elem">
-          <h2>More Than 20 events this semester</h2>
-          <img
-            src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
-        </div>
-        <div class="elem">
-          <h2>Mahashivratri Celeberations</h2>
-          <img
-            src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
-        </div>
+        {% endfor %}
        
       </div>
       <div id="page4">
         <h1 class="page4_header">Our Recent events</h1>
-        
-        <div class="elem">
-          <h2>Amog Lila Prabhu</h2>
-          <img src="https://i.ytimg.com/vi/0M_s6FDbXFw/sddefault.jpg" alt="" />
-        </div>
+        {% for event in latest_events %}
 
         <div class="elem">
-          <h2>More Than 20 events this semester</h2>
-          <img
-            src="https://images.pexels.com/photos/5966418/pexels-photo-5966418.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
+          <h2>{{ event.name }}</h2>
+          <img src="{{ event.image.url }}" alt="" />
         </div>
-        <div class="elem">
-          <h2>Mahashivratri Celeberations</h2>
-          <img
-            src="https://images.pexels.com/photos/16745043/pexels-photo-16745043/free-photo-of-hindu-ceremony-at-night.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-          />
-        </div>
+        {% endfor %}
         
       </div>
     </div>
-
-    
     
     <footer>
       <div class="waves">
