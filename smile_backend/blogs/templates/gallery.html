@@ -1,402 +1,60 @@
+<!-- gallery.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Gallery</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
     <style>
+        
         body {
+            background-color: #fd7e14; 
+            color: #495057;
+            size: 3rem ;
+            font-family: 'Garamond', serif;
             margin: 0;
-            height: 100vh;
-            display: grid;
-            place-items: center;
-            background-color: #E5681A;
-        }
-        
-        .image-group {
-            margin-bottom: 20px;
-            text-align: center;
-            color: white;
-            length:100%%;
-            width:100%%;
-        }
-        
-        .gallery {
-            position: relative;
-            width: 400px; /* Adjust the width of the gallery */
-            height: 300px; /* Adjust the height of the gallery */
-            transform-style: preserve-3d;
-            animation: rotate 35s linear infinite;
-            margin: 0 auto;
-        }
-        
-        @keyframes rotate {
-            from {
-                transform: perspective(1200px) rotateY(0deg);
-            }
-            to {
-                transform: perspective(1200px) rotateY(360deg);
-            }
-        }
-        
-        .gallery span {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            transform-origin: center;
-            transform-style: preserve-3d;
-            transform: rotateY(calc(var(--i) * 45deg)) translateZ(380px);
-        }
-        
-        .gallery span img {
-            position: absolute;
-            width: 100%; /* Make the images fill their container */
-            height: 100%; /* Make the images fill their container */
-            object-fit: cover;
-        }
-        /* /////////////////// */
-        *{
-            box-sizing: border-box;
-            margin:0;
             padding: 0;
         }
-        body {
-        --color1: #fff;
-        --color2: #181818;
-      }
-      footer {
-        position: relative;
-        width: 100%;
-        background: black;
-        min-height: 100px;
-        padding: 20px 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-      footer .social_icon,
-      footer .menu {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px 0;
-        flex-wrap: wrap;
-      }
-
-      footer .social_icon li,
-      footer .menu li {
-        list-style: none;
-      }
-      footer .social_icon li a {
-        font-size: 2em;
-        color: #fff;
-        margin: 0 10px;
-        display: inline-block;
-        transition: 0.5s;
-      }
-      footer .social_icon li a:hover {
-        transform: translateY(-10);
-      }
-      footer .menu li a {
-        font-size: 1.2em;
-        color: #fff;
-        margin: 0 10px;
-        display: inline-block;
-        text-decoration: none;
-        opacity: 0.75;
-      }
-      footer .menu li a:hover {
-        opacity: 1;
-      }
-      footer p {
-        color: #fff;
-        text-align: center;
-        margin-top: 15px;
-        margin-bottom: 10px;
-        font-size: 1.1em;
-      }
-      footer .wave {
-        position: absolute;
-        top: -100px;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: url(montserrat/wave.png); /* Use the wave image as background */
-        background-size: 1000px 100px;
-      }
-      footer .wave#wave1 {
-        z-index: 1000;
-        opacity: 1;
-        bottom: 0;
-        animation: animateWave 4s linear infinite;
-      }
-      footer .wave#wave2 {
-        z-index: 999;
-        opacity: 0.5;
-        bottom: 10px;
-        animation: animateWave_02 4s linear infinite;
-      }
-      footer .wave#wave3 {
-        z-index: 1000;
-        opacity: 0.2;
-        bottom: 15px;
-        animation: animateWave 3s linear infinite;
-      }
-      footer .wave#wave4 {
-        z-index: 999;
-        opacity: 0.7;
-        bottom: 20px;
-        animation: animateWave_02 3s linear infinite;
-      }
-      @keyframes animateWave {
-        0% {
-          background-position-x: 1000px;
-        }
-        100% {
-          background-position-x: 0px;
-        }
-      }
-      @keyframes animateWave_02 {
-        0% {
-          background-position-x: 0px;
-        }
-        100% {
-          background-position-x: 1000px;
-        }
-      }
-      .page4_header {
-        width: 100%;
-        text-align: center;
-        margin-top: 250px;
-      }
-      header {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    z-index: 99;
-    box-shadow: 0 0 10px #000;
-    background: rgba(0, 0, 0, 0.5);
-    top: 0; /* Ensure navbar stays at the top */
-    left: 0; /* Ensure navbar stays at the left */
-    right: 0; /* Ensure navbar stays at the right */
-}
-
-     #chk1{
-        display:none;
-     }
-     i{
-        color:#fff;
-        cursor:pointer;
-     }
-     header .logo{
-        flex:1;
-        color:#fff;
-        margin-left:50px;
-        text-transform:uppercase;
-        font-size: 15px;
-     }
-     header .search-box{
-        flex:1;
-        position: relative;
-        
-     }
-     .search-box input{
-        width:100%;
-        height:40px;
-        border:none;
-        outline: none;
-        background: #f2f2f2;
-        border-radius: 30px;
-        color:grey;
-        font-size: 16px;
-        text-align: center;
-        padding-left: 5px;
-        padding-right: 40px;
        
-     }
-     .search-box button{
-        cursor:pointer;
-        width:40px;
-        height: 40px;
-        border-radius: 30px;
-        border: none;
-        position: absolute;
-        top:0;
-        right:0;
-        transform: scale(0.9);
-        background: rgb(14, 14, 14);
-     }
-     header ul{
-        flex:2;
-        display: flex;
-        justify-content: space-between;
-     }
-     header ul li{
-        list-style: none;
-     }
-     header ul li a{
-        text-decoration: none;
-        color:#fff;
-        font-weight: 600;
-        text-transform: uppercase;
-        padding:10px 15px;
-     }
-     header ul li a:hover{
-        border-bottom: 2px solid cadetblue;
-     }
-     header .menu{
-        font-size:2.5rem;
-        display: none;
-     }
-     @media(max-width:1000px){
-        .search-box button{
-            position: absolute;
+        .container {
+            padding: 50px;
         }
-        header ul{
-            position: fixed;
-            top:100px;
-            right:-100%;
-            background: rgba(0,0,0,0.5);
-            height: calc(100vh - 100px);
-            width:50%;
-            flex-direction: column;
-            align-items: center;
-            transition: right 0.5s linear;
+        .gallery-item {
+            margin-bottom: 20px;
         }
-        header .menu{
-            display: block;
-            width:100px;
-            text-align: center;
+        .gallery-img {
+            max-width: 100%;
+            height: auto;
         }
-        #chk1:checked ~ ul{
-            right:0;
+        .card {
+            height: 100%;
         }
-     }
-     @media(max-width:600px){
-        header .logo{
-            font-size: 10px;
-            margin-left: 8px;
-        }
-        header ul{
-            width:100%;
-        }
-     }
-     .logo img{
-        height:40px;
-        width:40px;
-        margin-top: 20px;
-        margin-left: 25px;
-     }
-     h1{
-        border: 2px solid black;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 50px;
-    margin-bottom: 30px;
-    margin-top: 120px; /* Add margin to the top */
-     }
+        
     </style>
 </head>
+{%include 'navbar.html' %}
+    
 <body>
-    {%include 'navbar.html' %}
-    <h1>Image Gallery</h1>
-    {% for image_group in image_groups %}
-    <div class="image-group">
-        <h2>{{ image_group.title }}</h2>
+    <div class="container">
+        <h1 class="text-center heading">Gallery</h1>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="gallery">
-            {% for image in image_group.image_set.all %}
-            <span style="--i:{{ forloop.counter }}">
-                <img src="{{ image.image.url }}" alt="{{ image.alt }}">
-            </span>
-            
+        <div class="row">
+            {% for item in image_groups %}
+                <div class="col-md-4 gallery-item">
+                    <div class="card h-100">
+                        <img src="{{ item.cover_image.url }}" alt="{{ item.title }}" class="card-img-top gallery-img">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <a href="{% url 'image_group_images' item.id %}" class="btn btn-primary">View more</a>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
     </div>
-
-    {% endfor %}
-    <footer>
-        <div class="waves">
-          <div class="wave" id="wave1"></div>
-          <div class="wave" id="wave2"></div>
-          <div class="wave" id="wave3"></div>
-          <div class="wave" id="wave4"></div>
-        </div>
-        <ul class="social_icon">
-          <li>
-            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-          </li>
-          <li>
-            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-          </li>
-          <li>
-            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
-          </li>
-          <li>
-            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-          </li>
-        </ul>
-        <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About </a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Team</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <p>@2024 Smile Club | All rights reserved</p>
-      </footer>
-  
-      {% comment %} <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
-        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      ></script>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
-        integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      ></script>
-      <script src="{% static 'index.js' %}"></script></body>
-      <script
-        type="module"
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      ></script>
-      <script
-        nomodule
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-      ></script> {% endcomment %}
-    </body>
+    {% bootstrap_javascript %}
+</body>
 </html>

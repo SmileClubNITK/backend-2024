@@ -126,6 +126,8 @@ class Yvideos(models.Model):
 
 class ImgGrp (models.Model):
     title = models.CharField(max_length=100)
+    cover_image = CloudinaryField('image',null=True)
+
 
     def __str__(self):
         return self.title

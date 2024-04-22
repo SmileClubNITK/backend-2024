@@ -45,7 +45,7 @@ def team_list_view(request):
 
 def event_list(request):
     """View function to display a list of events sorted by event_date."""
-    events = Event.objects.order_by('event_date')  # Fetch events sorted by event_date
+    events = Event.objects.order_by('-event_date')  # Fetch events sorted by event_date
     context = {'events': events}
     return render(request, 'timeline.html', context)
 
@@ -76,6 +76,14 @@ def gallery(request):
     image_groups = ImgGrp.objects.all()
 
     return render(request, 'gallery.html', {'image_groups': image_groups})
+
+def image_group_images(request, group_id):
+    # Retrieve the images of the image group
+    image_group = get_object_or_404(ImgGrp, pk=group_id)
+    images = image_group.image_set.all()
+
+    return render(request, 'event_gallery.html', {'images': images, 'image_group': image_group})
+
 
 def home(request):
     current_week_number = datetime.date.today().isocalendar()[1]

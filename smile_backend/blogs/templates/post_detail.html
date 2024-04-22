@@ -150,6 +150,8 @@
     }
     .title{
       font-size: 45px ;
+      margin-left:40rem;
+
     }
     .author_name{
       font-size: 30px;
@@ -157,10 +159,43 @@
       margin-bottom: 30px;
     }
 
+    .card__footer {
+      display: flex;
+      padding: 1rem;
+      margin-top: -2rem;
+      
+    }
+
+    .user {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .user__image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .user__info {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.4rem;
+      
+
+    }
+
+    .user__info > small {
+      color: #666;
+    }
+
     /* ///////////// */
     
   </style>
 </head>
+{%include 'navbar.html' %} 
+
 <body>
   <div class="container mt-5">
     <div class="row">
@@ -188,24 +223,27 @@
           
           <div class="blog-card__info">
             <h1 class = "title">{{ post.title }}</h1>
-            <p>
-              <a href="#" class="icon-link mr-3">
-                <i class="fa fa-pencil-square-o">                  
-                  <p class="author_name">
-                    {% for author in post.authors.all %}
-                    - {{ author.name }}  
-                    {% endfor %}
-                  </p>
-                </i>
-
-                 </a>
-            </p>
-
+            
+            {% for author in post.authors.all %}
+            <div class="card__footer">
+              <div class="user">
+                <img src="{{ author.image.url }}" alt="user__image" class="user__image" />
+                <div class="user__info">
+                  <h5>{{ author.name }}</h5>{% if not forloop.last %}, {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
             {% for tag in post.tags.all %}
             <button class="small-button">{{ tag.name }}</button>
             {% if not forloop.last %}, {% endif %}
             {% endfor %}
-
+            <br>
+            <br>
+            <br>
+            <br>  
+            <br>  
+            <br>  
             {% for block in post.content_blocks.all %}
             {% if block.order_type == 'paragraph' %}
             <div class="full-content">
