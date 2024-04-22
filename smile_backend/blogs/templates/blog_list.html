@@ -58,7 +58,6 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        
       }
 
       .tag {
@@ -401,8 +400,8 @@
      }
     </style>
   </head>
+  {% comment %} {%include 'navbar.html' %} {% endcomment %}
   <body>
-    {%include 'navbar.html' %}
     <h1 class="total-blogs">Our Blogs</h1>
     <div class="container">
       {% for blog in posts %}

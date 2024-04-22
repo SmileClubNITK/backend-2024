@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transparent Card</title>
-    <link rel="stylesheet" href="{% static 'navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
 
     <style>
       * {
@@ -274,18 +274,18 @@
       
     </style>
   </head>
+  {% comment %} {%include 'navbar.html' %} {% endcomment %}
 
-  {%include 'navbar.html' %}
   <body>
     <div class="timeline">
       {% for event in events %}
           <a href="{% url 'event_detail' event.id %}" style="text-decoration : none;">
       <div class="container {% if forloop.counter0|divisibleby:2 %}left-container{% else %}right-container{% endif %}">
-        <img src="{% static 'media/timeline/testing.jpeg' %}" alt="Test Image">
+        <img src="https://res.cloudinary.com/dmnep85ym/image/upload/v1713781264/sc_pwwbf3.jpg" alt="Test Image">
         <div
           class="text-box {% if forloop.counter0|divisibleby:2 %}left-text-box{% else %}right-text-box{% endif %}"
           style="
-            background-image: url('/montserrat/blu.jpg');
+            {% comment %} background-image: url('/montserrat/blu.jpg'); {% endcomment %}
             background-size: cover;
           "
         >
