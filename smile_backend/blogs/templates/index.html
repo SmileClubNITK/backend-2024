@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   {%load static%}
@@ -96,7 +97,7 @@
         left: 0;
         width: 100%;
         height: 100px;
-        background: url(montserrat/wave.png); /* Use the wave image as background */
+        background: url('https://res.cloudinary.com/dmnep85ym/image/upload/v1713783080/wave_j0z4mz.png'); /* Use the wave image as background */
         background-size: 1000px 100px;
       }
       footer .wave#wave1 {
@@ -294,11 +295,9 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 4rem;
   padding: 4rem;
-  margin: 0 auto;
-  width: max-content;
+  margin: auto;
   flex-wrap: wrap;
 }
-
 .card {
   font-family: 'Heebo', sans-serif;
   --bg-filter-opacity: 0.5;
@@ -321,8 +320,9 @@ a {
   overflow: hidden;
   border: 10px solid #ccc;
   text-decoration: none;
+  margin:auto !important;
+  height: 25rem !important;
 }
-
 
 .card h1 {
   margin: 0;
@@ -631,10 +631,10 @@ img {
   flex-direction: column;
   width: 300px;
   overflow: hidden;
-  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+ 
   border-radius: 1em;
-  background: #121212;
-  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+  background: black;
+
   margin-right: 35px;
   margin-left: 35px;
 }
@@ -643,7 +643,7 @@ img {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: #000;
+  background-color: black;
   gap: .5rem;
 }
 
@@ -696,8 +696,8 @@ img {
   border-radius: 50%;
 }
 
-.user__info  {
-  color: black !important;
+.user__info > small {
+  color: #666;
 }
 .card_new_header{
  font-weight: bold;
@@ -719,12 +719,12 @@ img {
    /* Add some margin between each elem */
     margin-top: 50px; 
     margin-bottom: 50px;
-    width:300px;
-    height: 500px;
+    width:300px ;
+    height: 500px ;
     
   }
   .page4_header{
-    margin-top: 700px;
+    margin-top: 230px !important;
     font-size: 500px;
     font-weight: bold;
     margin-bottom: 0px;
@@ -732,6 +732,106 @@ img {
   .elem h2{
     font-size: 30px;
     font-weight: bold;
+  }
+}
+.increase{
+  font-size: 50px  !important;
+  font-weight: bold   !important;
+}
+/* ///////////// */
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card2 {
+  width: 20rem;
+  height: 30rem;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 100px;
+  box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+ 
+  img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    transition: opacity .2s ease-out;
+  }
+
+  h2 {
+    position: absolute;
+    inset: auto auto 30px 30px;
+    margin: 0;
+    transition: inset .3s .3s ease-out;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  
+  p, a {
+    position: absolute;
+    opacity: 0;
+    max-width: 80%;
+    transition: opacity .3s ease-out;
+  }
+  
+  p {
+    inset: auto auto 80px 30px;
+  }
+  
+  a {
+    inset: auto auto 40px 30px;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  &:hover h2 {
+    inset: auto auto 220px 30px;
+    transition: inset .3s ease-out;
+  }
+  
+  &:hover p, &:hover a {
+    opacity: 1;
+    transition: opacity .5s .1s ease-in;
+  }
+  
+  &:hover img {
+    transition: opacity .3s ease-in;
+    opacity: 1;
+  }
+
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+}
+@media screen and (max-width: 768px) {
+  #page4 {
+    width: 100%; /* Adjust width as needed */
+    margin: auto; /* Center the container horizontally */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    height: 100vh;
+  }
+
+  #page4 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -744,13 +844,14 @@ img {
     <div id="cursor"></div>
     <div id="cursor-blur"></div>
 
-    <video autoplay loop muted src="help.mp4"></video>
+    <video autoplay loop muted src="https://res.cloudinary.com/dmnep85ym/video/upload/v1713779156/help_f6ejrf.mp4"></video>
     <div id="main">
       <div id="page1">
-        <h2>Welcome to SMILE CLUB</h2>
+        <h2>Welcome to </h2>
+        <p class="increase">SMILE CLUB</p>
         <h2>ANCIENT SCIENCE AND TECHNOLOGY FOR MODERN INDIA LIFE ENLIGHTENMENT
           </h2>
-        <p>Lets make the whole world noble</p>
+        <p>Lets have a smile of satisfaction</p>
         <div id="arrow">
           <i class="ri-arrow-down-line"></i>
         </div>
@@ -768,14 +869,9 @@ img {
           <!-- <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-1-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
                     alt="" /> -->
           <div id="about-us-in">
-            <h3>ABOUT US</h3>
+            <h3>Our Principle</h3>
             <p>
-              Welcome to our spiritual club, where diverse souls unite in a
-              haven of enlightenment. Through meditation and reflection, we
-              nurture inner peace and compassion. We celebrate growth, embracing
-              transformation and interconnectedness. Together, we are beacons of
-              light, spreading love and kindness in our community. Join us on
-              this profound journey of self-discovery and unity.
+             Svasmai svalpam samajaya sarvasvam |
             </p>
           </div>
         </div>
@@ -785,8 +881,8 @@ img {
             
             <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');">
               <div>
-                <h1>Culture</h1>
-                <p>The syntax of a language is how it works. How to actually write it. Learn HTML syntax…</p>
+                <h1> Vision</h1>
+                <p>Our principles are our guiding light in crafting our vision statement,it is to celebrate and distribute the joy of the Indian culture.</p>
                 
               </div>
             </a>
@@ -795,8 +891,9 @@ img {
            
             <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');  ">
               <div>
-                <h1>Misson</h1>
-                <p>Learn about some of the most common HTML tags…</p>
+                <h1>About us</h1>
+                <p>A culturally aware club sharing joy and greatness through our culture. Serving society brings us immense satisfaction.
+                </p>
                
               </div>
             </a>
@@ -805,18 +902,8 @@ img {
             
             <a class="card" href="#" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');  ">
               <div>
-                <h1>Nation</h1>
-                <p>Learn how to use links and images along with file paths…</p>
-                <div class="date">14 Oct 2017</div>
-              </div>
-            </a>
-          </div>
-          <div class="card-grid-space">
-            
-            <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');">
-              <div>
-                <h1>Nation</h1>
-                <p>Learn how to use links and images along with file paths…</p>
+                <h1>Content</h1>
+                <p>Our content explores diverse topics, offering insightful perspectives and fostering intellectual curiosity.</p>
                 
               </div>
             </a>
@@ -825,8 +912,18 @@ img {
             
             <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');">
               <div>
-                <h1>Civilization</h1>
-                <p>Learn how to use links and images along with file paths…</p>
+                <h1>Events</h1>
+                <p>Our events spark curiosity and connection, offering enriching experiences for all. Join us for engaging gatherings that inspire and educate.</p>
+                
+              </div>
+            </a>
+          </div>
+          <div class="card-grid-space">
+            
+            <a class="card" style="--bg-img: url('https://source.unsplash.com/600x400/?computer');">
+              <div>
+                <h1>Courses</h1>
+                <p>Our courses provide comprehensive learning experiences, tailored to meet diverse interests and skill levels. .</p>
                
               </div>
             </a>
@@ -835,8 +932,8 @@ img {
             
             <a class="card" style="--bg-img: url(''); ">
               <div>
-                <h1>Character-Building</h1>
-                <p>Learn how to use links and images along with file paths…</p>
+                <h1>Gallery</h1>
+                <p>Explore our vibrant gallery showcasing the essence of our community, captured in moments of creativity, diversity, and shared experiences.</p>
                 
               </div>
             </a>
@@ -847,36 +944,27 @@ img {
        <div class="card_new_header">
         <p>Our Latest Blogs</p>
        </div>
-
         <div class="container">
           {% for blog in latest_blogs %}
+
           <div class="card_new">
             <div class="card__header">
               <img src="{{ blog.cover_image.url }}" alt="card__image" class="card__image" width="600">
             </div>
             <div class="card__body">
               <div class="tag">
-              {% for tag in blog.tags.all %}
-            <span class="tag tag-blue">{{ tag }}</span> <!-- Changed blog.tags to tag -->
-            {% if not forloop.last %},{% endif %}
-            {% endfor %}
-          </div>
-             
-              <h4>{{ blog.title }}</h4>
-              <p>{{ blog.abstract }}</p>
+                {% for tag in blog.tags.all %}
+              <span class="tag tag-blue">{{ tag }}</span> <!-- Changed blog.tags to tag -->
+              {% if not forloop.last %},{% endif %}
+              {% endfor %}
             </div>
-            {% for author in blog.authors.all %}
-            <div class="card__footer">
-              <div class="user">
-                <img src="{{ author.image.url }}" alt="user__image" class="user__image" />
-                <div class="user__info" style = "color: black;">
-                  <h5>{{ author.name }}</h5>{% if not forloop.last %}, {% endif %}
-                </div>
-              </div>
+            <h4>{{ blog.title }}</h4>
+            <p>{{ blog.abstract }}</p>
             </div>
-          {% endfor %}
           </div>
+          
           {% endfor %}
+
         </div>
         
   
@@ -911,14 +999,24 @@ img {
         <h1 class="page4_header">Our Recent events</h1>
         {% for event in latest_events %}
 
-        <div class="elem">
-          <h2>{{ event.name }}</h2>
-          <img src="{{ event.image.url }}" alt="" />
-        </div>
+        <main>
+          <div class = "card2">
+            <img src="{{ event.image.url }}" alt="">
+            <div class="card-content2">
+              <h2>
+                {{ event.name }}              </h2>
+              <p>
+                {{ event.tagline }}              </p>
+              
+            </div>
+          </div>
+        </main>
         {% endfor %}
-        
+
       </div>
     </div>
+
+    
     
     <footer>
       <div class="waves">
