@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transparent Card</title>
     {% comment %} <link rel="stylesheet" href="{% static 'style.css' %}" /> {% endcomment %}
+    {% comment %} <link
+      rel="shortcut icon"
+      href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
+      type="image/x-icon"
+    /> {% endcomment %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    {% comment %} <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    /> {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
 
     <style>
       * {
@@ -271,16 +287,163 @@
       .text-box h2 {
         line-height: 1.5;
       }
-      .nav{
-        position: relative;
-      }
+      .navbar_t {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust z-index as needed */
+    /* Additional styling properties */
+   
+  }
+  /* //////////////// */
+  header {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 99;
+        box-shadow: 0 0 10px #000;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    #chk1 {
+        display: none;
+    }
+    
+    i {
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    header .logo {
+        color: #fff;
+        margin-left: 25px;
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+    
+    header ul {
+        display: flex;
+        justify-content: space-between;
+        gap:130px;
+    }
+    
+    header ul li {
+        list-style: none;
+    }
+    
+    header ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        {% comment %} padding: 10px 15px; {% endcomment %}
+    }
+    
+    header ul li a:hover {
+        border-bottom: 2px solid cadetblue;
+    }
+    
+    header .menu {
+        font-size: 2.5rem;
+        display: none;
+    }
+    
+    @media(max-width: 1000px) {
+        header ul {
+            position: fixed;
+            top: 100px;
+            right: -100%;
+            background: rgba(0, 0, 0, 0.5);
+            height: calc(100vh - 100px);
+            width: 50%;
+            flex-direction: column;
+            align-items: center;
+            transition: right 0.5s linear;
+            
+        }
+        
+        header .menu {
+            display: block;
+            width: 100px;
+            text-align: center;
+        }
+        
+        #chk1:checked ~ ul {
+            right: 0;
+        }
+       
+    }
+    
+    @media(max-width: 600px) {
+        header .logo {
+            font-size: 10px;
+            margin-left: 8px;
+        }
+        
+        header ul {
+            width: 100%;
+        }
+       
+    }
+    
+    .lo_go img {
+        height: 100px;
+        width: 100px;
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+    
+    .heading {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin: 100px auto;
+    }
+    .icons a {
+        margin-right: 5px; /* Adjust margin as needed */
+    }
     </style>
   </head>
   
   <body>
-    <div class = "nav">
-      {%include 'navbar.html' %} 
-  </div>
+    <div class="navbar_t">
+      <div class = "nav">
+        <header>
+     <input type="checkbox" name="" id="chk1">
+     <div class ="lo_go">
+         <img src="https://res.cloudinary.com/dmnep85ym/image/upload/v1713867500/for_black_bgm_ioxgoi.png" alt="Smile Club Logo">
+         <!-- Insert your logo image here -->
+     </div>
+     <ul>
+         <li><a href="{% url 'home' %}">Home</a></li>
+         <li><a href="{% url 'team-list' %}">About us</a></li>
+         <li><a href="{% url 'blogs-list' %}">Blog</a></li>
+         <li><a href="{% url 'event-list' %}">Timeline</a></li>
+         <li><a href="{% url 'gallery' %}">Gallery</a></li>
+         <li><a href="{% url 'display_youtube_videos' %}">Videos</a></li>
+         <div class="icons">
+         <li>
+          <a href="https://www.linkedin.com/company/smile-club-nitk/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://youtube.com/@SMILEClub_NITK?si=qk-v-oJZi8M7igKn"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/p/C52tiEtLNU5/?igsh=YzljYTk1ODg3Zg=="><i class="fab fa-instagram"></i></a>
+         </li>
+         </div>
+     </ul>
+     <div class="menu">
+         <label for="chk1">
+             <i class="fa fa-bars"></i>
+         </label>
+     </div>
+ </header>
+     </div>
+    </div>
     <div class="timeline">
       {% for event in events %}
           <a href="{% url 'event_detail' event.id %}" style="text-decoration : none;">

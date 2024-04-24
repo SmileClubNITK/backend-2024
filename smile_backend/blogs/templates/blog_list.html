@@ -448,26 +448,19 @@
         <div class="wave" id="wave4"></div>
       </div>
       <ul class="social_icon">
-        <li>
-          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-        </li>
-      </ul>
-      <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About </a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+        <li><a href="https://www.linkedin.com/company/smile-club-nitk/"><i class="fab fa-linkedin"></i></a></li>
+        <li> <a href="https://youtube.com/@SMILEClub_NITK?si=qk-v-oJZi8M7igKn"><i class="fab fa-youtube"></i></a></li>
+          <li> <a href="https://www.instagram.com/p/C52tiEtLNU5/?igsh=YzljYTk1ODg3Zg=="><i class="fab fa-instagram"></i></a></li>
+    </ul>
+    <ul class="menu">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'team-list' %}">About us </a></li>
+      <li><a href="{% url 'blogs-list' %}">Blog</a></li>
+      <li><a href="{% url 'event-list' %}">Timeline</a></li>
+      <li><a href="{% url 'gallery' %}">Gallery</a></li>
+      <li><a href="{% url 'display_youtube_videos' %}">Videos</a></li>
+      
+    </ul>
       <p>@2024 Smile Club | All rights reserved</p>
     </footer>
 
