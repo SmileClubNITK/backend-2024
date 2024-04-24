@@ -37,7 +37,7 @@ body {
 #cursor {
   height: 20px;
   width: 20px;
-  background-color: #95c11e;
+  /* background-color: #95c11e; */
   border-radius: 50%;
   position: fixed;
   z-index: 99;
@@ -46,7 +46,7 @@ body {
 #cursor-blur {
   height: 500px;
   width: 500px;
-  background-color: rgba(150, 193, 30, 0.3);
+  /* background-color: rgba(150, 193, 30, 0.3); */
   border-radius: 50%;
   position: fixed;
   filter: blur(80px);
