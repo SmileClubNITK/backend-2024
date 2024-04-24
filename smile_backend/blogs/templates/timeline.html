@@ -446,7 +446,7 @@
     </div>
     <div class="timeline">
       {% for event in events %}
-          <a href="{% url 'event_detail' event.id %}" style="text-decoration : none;">
+          <a href="{% url 'event_detail' event.id %}" style="text-decoration: none; color: inherit;">
       <div class="container {% if forloop.counter0|divisibleby:2 %}left-container{% else %}right-container{% endif %}">
         <img src="https://res.cloudinary.com/dmnep85ym/image/upload/v1713781264/sc_pwwbf3.jpg" alt="Test Image">
         <div

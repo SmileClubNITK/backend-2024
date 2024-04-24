@@ -947,10 +947,11 @@ main {
        </div>
         <div class="container">
           {% for blog in latest_blogs %}
-
           <div class="card_new">
             <div class="card__header">
+              <a href="{% url 'post-detail' blog.id %}" style="text-decoration: none; color: inherit;">
               <img src="{{ blog.cover_image.url }}" alt="card__image" class="card__image" width="600">
+              </a>
             </div>
             <div class="card__body">
               <div class="tag">
@@ -959,11 +960,14 @@ main {
               {% if not forloop.last %},{% endif %}
               {% endfor %}
             </div>
+            <a href="{% url 'post-detail' blog.id %}" style="text-decoration: none; color: inherit;">
+
             <h4>{{ blog.title }}</h4>
             <p>{{ blog.abstract }}</p>
+            </a>
             </div>
           </div>
-          
+        {% comment %} </a> {% endcomment %}
           {% endfor %}
 
         </div>
