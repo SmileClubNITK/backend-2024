@@ -27,12 +27,3 @@ python3 manage.py migrate
 python manage.py createsuperuser
 python3 manage.py runserver
 
-go to /admin
-add author
-add b_post and copy uuid
-add content block - select b_post,  select  image or text , if image upload image and caption , if text put only description
-
-now we can view the post in http://127.0.0.1:8000/blogs/post/uuid/          note: (uuid is copied from b_post)
-
-sorry : just testing purposes so routes r not well set
-
